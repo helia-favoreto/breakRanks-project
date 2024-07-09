@@ -1,0 +1,374 @@
+file 2392440 1720481017                                         
+version 2
+run BreakRanksNoGui-20-20240708-17:37:23-154533
+attr configname BreakRanksNoGui
+attr datetime 20240708-17:37:23
+attr datetimef 20240708-173723
+attr experiment BreakRanksNoGui
+attr inifile omnetpp.ini
+attr iterationvars "$nCars=8, $platoonSize=8, $nLanes=1, $ploegH=0.5, $controller=1, $headway=0.1, $leaderHeadway=1.2, $leaderSpeed=110, $breakRanksSafetyDistance=2, $minSpeed=100, $maxSpeed=120, $beaconInterval=0.1, $priority=4, $packetSize=200, $sController=\"CACC\", $0=2, $1=0"
+attr iterationvarsd nCars=8/platoonSize=8/nLanes=1/ploegH=0.5/controller=1/headway=0.1/leaderHeadway=1.2/leaderSpeed=110/breakRanksSafetyDistance=2/minSpeed=100/maxSpeed=120/beaconInterval=0.1/priority=4/packetSize=200/sController=CACC/2/0
+attr iterationvarsf nCars=8,platoonSize=8,nLanes=1,ploegH=0.5,controller=1,headway=0.1,leaderHeadway=1.2,leaderSpeed=110,breakRanksSafetyDistance=2,minSpeed=100,maxSpeed=120,beaconInterval=0.1,priority=4,packetSize=200,sController=CACC,2,0-
+attr measurement "$nCars=8, $platoonSize=8, $nLanes=1, $ploegH=0.5, $controller=1, $headway=0.1, $leaderHeadway=1.2, $leaderSpeed=110, $breakRanksSafetyDistance=2, $minSpeed=100, $maxSpeed=120, $beaconInterval=0.1, $priority=4, $packetSize=200, $sController=\"CACC\", $0=2, $1=0"
+attr network Highway
+attr processid 154533
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 20
+attr seedset 0
+itervar beaconInterval 0.1
+itervar breakRanksSafetyDistance 2
+itervar controller 1
+itervar headway 0.1
+itervar leaderHeadway 1.2
+itervar leaderSpeed 110
+itervar maxSpeed 120
+itervar minSpeed 100
+itervar nCars 8
+itervar nLanes 1
+itervar packetSize 200
+itervar platoonSize 8
+itervar ploegH 0.5
+itervar priority 4
+itervar sController "\"CACC\""
+config image-path ../../../veins/images
+config repeat 10
+config extends BreakRanks
+config *.manager.command "\"sumo\""
+config *.manager.ignoreGuiCommands true
+config output-vector-file results/BreakRanks_1_0.1_110_2/result_0.vec
+config output-scalar-file results/BreakRanks_1_0.1_110_2/result_0.sca
+config extends Platooning
+config *.node[*].scenario_type "\"BreakRanksScenario\""
+config *.manager.command "\"sumo-gui\""
+config *.node[*].scenario_type "\"SimpleScenario\""
+config cmdenv-express-mode true
+config cmdenv-autoflush true
+config cmdenv-status-frequency 15s
+config num-rngs 6
+config network Highway
+config debug-on-errors true
+config print-undisposed true
+config *.playgroundSizeX 65000m
+config *.playgroundSizeY 25000m
+config *.playgroundSizeZ 50m
+config sim-time-limit "100 s"
+config *.annotations.draw false
+config *.obstacles.debug false
+config *.world.useTorus false
+config *.world.use2D false
+config *.manager.updateInterval 0.01s
+config *.manager.host "\"localhost\""
+config *.manager.moduleType "\"org.car2x.plexe.PlatoonCar\""
+config *.manager.moduleName "\"node\""
+config *.manager.moduleDisplayString "\"\""
+config *.manager.autoShutdown true
+config *.manager.margin 25
+config *.connectionManager.sendDirect true
+config *.connectionManager.maxInterfDist 2600m
+config *.connectionManager.drawMaxIntfDist false
+config *.**.nic.mac1609_4.useServiceChannel false
+config *.**.nic.mac1609_4.txPower 100mW
+config *.**.nic.mac1609_4.bitrate 6Mbps
+config *.**.nic.mac1609_4.useAcks true
+config *.**.nic.mac1609_4.ackErrorRate 0.0
+config *.**.nic.mac1609_4.frameErrorRate 0.0
+config *.**.nic.phy80211p.minPowerLevel -94dBm
+config *.**.nic.phy80211p.maxTXPower 100mW
+config *.**.nic.phy80211p.useNoiseFloor true
+config *.**.nic.phy80211p.noiseFloor -95dBm
+config *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+config *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+config *.**.nic.phy80211p.usePropagationDelay true
+config *.node[*].mobility.x 0
+config *.node[*].mobility.y 0
+config *.node[*].mobility.z 1.895
+config seed-set 0
+config **.seed 0
+config *.node[*].prot.rng-0 2
+config *.node[*].appl.rng-0 3
+config *.node[*].scenario.rng-0 4
+config **.traffic.rng-0 5
+config *.manager.configFile "\"./sumocfg/freeway.sumo.cfg\""
+config *.manager.launchConfig "xmldoc(\"./sumocfg/freeway.launchd.xml\")"
+config **.numberOfCars 8
+config **.numberOfCarsPerPlatoon 8
+config **.numberOfLanes 1
+config *.node[*].helper_type "\"PositionHelper\""
+config *.node[*].scenario.caccC1 0.5
+config *.node[*].scenario.caccXi 1
+config *.node[*].scenario.caccOmegaN "0.2 Hz"
+config *.node[*].scenario.caccSpacing "2 m"
+config *.node[*].scenario.engineTau "0.5 s"
+config *.node[*].scenario.ploegH 0.5s
+config *.node[*].scenario.ploegKp 0.2
+config *.node[*].scenario.ploegKd 0.7
+config *.node[*].scenario.useRealisticEngine false
+config *.node[*].scenario.useControllerAcceleration true
+config *.node[*].scenario.nLanes 1
+config **.numericController 1
+config **.headway 0.1s
+config *.node[*].scenario.accHeadway 0.1s
+config *.node[*].scenario.leaderHeadway 1.2s
+config *.node[*].scenario.leaderSpeed 110kmph
+config *.node[*].appl_type "\"SimplePlatooningApp\""
+config *.node[*].appl.*.scalar-recording true
+config *.node[*].appl.*.vector-recording true
+config *.node[0].appl.breakRanksSafetyDistance 2m
+config *.node[*].appl.minSpeed 100kmph
+config *.node[*].appl.maxSpeed 120kmph
+config *.node[*].protocol_type "\"SimplePlatooningBeaconing\""
+config *.node[*].prot.*.scalar-recording true
+config *.node[*].prot.*.vector-recording true
+config *.node[*].prot.beaconingInterval 0.1s
+config *.node[*].prot.priority 4
+config *.node[*].prot.packetSize 200
+config **.traffic_type "\"PlatoonsTrafficManager\""
+config **.traffic.platoonInsertTime "1 s"
+config **.traffic.platoonInsertSpeed 110kmph
+config **.traffic.nCars 8
+config **.traffic.platoonSize 8
+config **.traffic.nLanes 1
+config **.traffic.platooningVType "\"vtypeauto\""
+config **.traffic.controller "\"CACC\""
+config **.traffic.platoonInsertDistance 2m
+config **.traffic.platoonInsertHeadway 0s
+config **.traffic.platoonLeaderHeadway 1.2s
+config **.scalar-recording false
+config **.vector-recording false
+config output-vector-file results/BreakRanksNoGui_1_0.1_110_2/result_0.vec
+config output-scalar-file results/BreakRanksNoGui_1_0.1_110_2/result_0.sca
+
+vector 0 Highway.node[0].appl distance ETV
+0	11335 21219 113 542280 1.11 99.91 989 -1 99.799 44555.7228 2962009.2017848
+vector 1 Highway.node[0].appl relativeSpeed ETV
+1	32554 20365 113 542280 1.11 99.91 989 0 2.4444 1411.00398 2817.8721364012
+vector 2 Highway.node[0].appl nodeId ETV
+2	52919 16523 113 542280 1.11 99.91 989 0 0 0 0
+vector 3 Highway.node[0].appl acceleration ETV
+3	69442 19111 113 542280 1.11 99.91 989 -0.00283113 0.000125957 -0.043966303784312 9.6812896349407e-05
+vector 4 Highway.node[0].appl controllerAcceleration ETV
+4	88553 26491 113 542280 1.11 99.91 989 -0.00437036 0.00019576 -0.042459310034081 0.00013890441444735
+vector 5 Highway.node[0].appl speed ETV
+5	115044 22453 113 542280 1.11 99.91 989 30.5554 30.56 30219.5304 923377.16656332
+vector 6 Highway.node[0].appl posx ETV
+6	137497 22352 113 542280 1.11 99.91 989 53.1904 3072.09 1545451.9579 3167629349.6004
+vector 7 Highway.node[0].appl posy ETV
+7	159849 21468 113 542280 1.11 99.91 989 242.45 242.45 239783.05 58135400.472499
+vector 8 Highway.node[1].appl distance ETV
+8	181317 17949 114 542281 1.11 99.91 989 -1 2 -719.05333 1258.7867150477
+vector 9 Highway.node[1].appl relativeSpeed ETV
+9	199266 17445 114 542281 1.11 99.91 989 -0.00041042 6.26813e-05 -0.00516446569 2.4260338836399e-06
+vector 10 Highway.node[1].appl nodeId ETV
+10	216711 17512 114 542281 1.11 99.91 989 1 1 989 989
+vector 11 Highway.node[1].appl acceleration ETV
+11	234223 21508 114 542281 1.11 99.91 989 -0.0597332 1.34104 24.414929580057 25.432158117458
+vector 12 Highway.node[1].appl controllerAcceleration ETV
+12	255731 27908 114 542281 1.11 99.91 989 -0.0929086 1.5 24.18552346831 33.011514667756
+vector 13 Highway.node[1].appl speed ETV
+13	283639 19482 114 542281 1.11 99.91 989 30.5554 33.0929 32386.9464 1061110.1851335
+vector 14 Highway.node[1].appl posx ETV
+14	303121 23425 114 542281 1.11 99.91 989 47.1904 3282.71 1635612.4269 3578992533.1735
+vector 15 Highway.node[1].appl posy ETV
+15	326546 22457 114 542281 1.11 99.91 989 242.45 245.75 240254.95 58365782.052499
+vector 16 Highway.node[2].appl distance ETV
+16	349003 23302 115 542282 1.11 99.91 989 1.99976 72.876 42354.4057 2215399.6427653
+vector 17 Highway.node[2].appl relativeSpeed ETV
+17	372305 23371 115 542282 1.11 99.91 989 -9.90587e-05 2.6271 649.04299792046 645.44419446094
+vector 18 Highway.node[2].appl nodeId ETV
+18	395676 17512 115 542282 1.11 99.91 989 2 2 1978 3956
+vector 19 Highway.node[2].appl acceleration ETV
+19	413188 22465 115 542282 1.11 99.91 989 -1.66118 0.290722 -5.553934039187 36.480194378452
+vector 20 Highway.node[2].appl controllerAcceleration ETV
+20	435653 26998 115 542282 1.11 99.91 989 -2.53478 0.327905 -4.3999774257051 50.685637239598
+vector 21 Highway.node[2].appl speed ETV
+21	462651 20119 115 542282 1.11 99.91 989 27.9285 30.56 29570.4929 884359.15150811
+vector 22 Highway.node[2].appl posx ETV
+22	482770 23408 115 542282 1.11 99.91 989 41.1904 2995.21 1498600.5214 2991326786.6256
+vector 23 Highway.node[2].appl posy ETV
+23	506178 22457 115 542282 1.11 99.91 989 242.45 242.45 239783.05 58135400.472499
+vector 24 Highway.node[3].appl distance ETV
+24	528635 21887 116 542283 1.11 99.91 989 -1 113.12 45060.49663 3875240.6172689
+vector 25 Highway.node[3].appl relativeSpeed ETV
+25	550522 20200 116 542283 1.11 99.91 989 -6.12367e-05 5.79979 753.19239525467 1376.5042710662
+vector 26 Highway.node[3].appl nodeId ETV
+26	570722 17512 116 542283 1.11 99.91 989 3 3 2967 8901
+vector 27 Highway.node[3].appl acceleration ETV
+27	588234 24651 116 542283 1.11 99.91 989 -2.42344 1.49048 14.479122625754 134.80492324811
+vector 28 Highway.node[3].appl controllerAcceleration ETV
+28	612885 27108 116 542283 1.11 99.91 989 -3.05019 1.5 15.994162152697 189.2370444646
+vector 29 Highway.node[3].appl speed ETV
+29	639993 20068 116 542283 1.11 99.91 989 26.9359 32.016 31335.2494 993566.79206918
+vector 30 Highway.node[3].appl posx ETV
+30	660061 23418 116 542283 1.11 99.91 989 35.1904 3165.59 1570136.7592 3310542951.8168
+vector 31 Highway.node[3].appl posy ETV
+31	683479 22457 116 542283 1.11 99.91 989 242.45 245.75 241254.85000001 58853933.232499
+vector 32 Highway.node[4].appl distance ETV
+32	705936 23380 117 542284 1.11 99.91 989 1.99966 131.871 50051.95047 3573906.8946016
+vector 33 Highway.node[4].appl relativeSpeed ETV
+33	729316 20562 117 542284 1.11 99.91 989 -0.000111235 3.00423 1674.3029453083 3929.0480227198
+vector 34 Highway.node[4].appl nodeId ETV
+34	749878 17512 117 542284 1.11 99.91 989 4 4 3956 15824
+vector 35 Highway.node[4].appl acceleration ETV
+35	767390 24694 117 542284 1.11 99.91 989 -2.66052 0.517404 -35.538227337281 111.09106238775
+vector 36 Highway.node[4].appl controllerAcceleration ETV
+36	792084 27612 117 542284 1.11 99.91 989 -3.05303 0.548881 -34.151981812973 142.81993007561
+vector 37 Highway.node[4].appl speed ETV
+37	819696 19926 117 542284 1.11 99.91 989 25.5003 30.56 27010.192 738849.64646972
+vector 38 Highway.node[4].appl posx ETV
+38	839622 23295 117 542284 1.11 99.91 989 29.1904 2727.33 1377036.7848 2508025180.5103
+vector 39 Highway.node[4].appl posy ETV
+39	862917 22457 117 542284 1.11 99.91 989 242.45 242.45 239783.05 58135400.472499
+vector 40 Highway.node[5].appl distance ETV
+40	885374 23359 118 542285 1.11 99.91 989 1.99977 191.986 108597.68237 15351435.853534
+vector 41 Highway.node[5].appl relativeSpeed ETV
+41	908733 19874 118 542285 1.11 99.91 989 -5.49023e-05 5.62278 2644.2621370218 9011.6896475423
+vector 42 Highway.node[5].appl nodeId ETV
+42	928607 17512 118 542285 1.11 99.91 989 5 5 4945 24725
+vector 43 Highway.node[5].appl acceleration ETV
+43	946119 21817 118 542285 1.11 99.91 989 -2.71202 1.49056 -25.567017373983 220.88503282737
+vector 44 Highway.node[5].appl controllerAcceleration ETV
+44	967936 27620 118 542285 1.11 99.91 989 -3.05303 1.5 -24.978406962428 266.1695683546
+vector 45 Highway.node[5].appl speed ETV
+45	995556 19725 118 542285 1.11 99.91 989 23.4169 30.56 27789.637 781982.29891262
+vector 46 Highway.node[5].appl posx ETV
+46	1015281 23428 118 542285 1.11 99.91 989 23.1904 2799.23 1401190.0448 2615638775.4413
+vector 47 Highway.node[5].appl posy ETV
+47	1038709 22457 118 542285 1.11 99.91 989 242.45 245.75 241192.15000001 58823323.092499
+vector 48 Highway.node[6].appl distance ETV
+48	1061166 23391 119 542286 1.11 99.91 989 1.56467 530.505 205967.65935 75640788.670723
+vector 49 Highway.node[6].appl relativeSpeed ETV
+49	1084557 20122 119 542286 1.11 99.91 989 -3.67757e-05 9.29774 4534.3601899523 26986.085613936
+vector 50 Highway.node[6].appl nodeId ETV
+50	1104679 17512 119 542286 1.11 99.91 989 6 6 5934 35604
+vector 51 Highway.node[6].appl acceleration ETV
+51	1122191 23941 119 542286 1.11 99.91 989 -2.71789 1.44311 -35.552149957952 200.08024821282
+vector 52 Highway.node[6].appl controllerAcceleration ETV
+52	1146132 27558 119 542286 1.11 99.91 989 -3.05302 1.5 -35.161146723218 262.25931391229
+vector 53 Highway.node[6].appl speed ETV
+53	1173690 19945 119 542286 1.11 99.91 989 23.7766 30.56 26978.2309 737260.08784563
+vector 54 Highway.node[6].appl posx ETV
+54	1193635 23420 119 542286 1.11 99.91 989 17.1904 2712.14 1362397.6909 2466565217.2291
+vector 55 Highway.node[6].appl posy ETV
+55	1217055 22457 119 542286 1.11 99.91 989 242.45 249.05 243584.65 59997439.9925
+vector 56 Highway.node[7].appl distance ETV
+56	1239512 18917 120 542287 1.11 99.91 989 -1 2.00022 -718.9876 1259.0496021206
+vector 57 Highway.node[7].appl relativeSpeed ETV
+57	1258429 18440 120 542287 1.11 99.91 989 -4.80519e-05 8.00833e-05 0.00062636065 1.9881747195996e-07
+vector 58 Highway.node[7].appl nodeId ETV
+58	1276869 17512 120 542287 1.11 99.91 989 7 7 6923 48461
+vector 59 Highway.node[7].appl acceleration ETV
+59	1294381 21514 120 542287 1.11 99.91 989 -0.0598154 1.339 24.439164405178 25.456401757914
+vector 60 Highway.node[7].appl controllerAcceleration ETV
+60	1315895 27922 120 542287 1.11 99.91 989 -0.092965 1.5 24.587184509802 33.600041798949
+vector 61 Highway.node[7].appl speed ETV
+61	1343817 19494 120 542287 1.11 99.91 989 30.5556 33.093 32386.2809 1061067.8790987
+vector 62 Highway.node[7].appl posx ETV
+62	1363311 23298 120 542287 1.11 99.91 989 11.1904 3246.64 1599947.0443 3462289373.7749
+vector 63 Highway.node[7].appl posy ETV
+63	1386609 22457 120 542287 1.11 99.91 989 242.45 249.05 244115.95 60259739.1725
+vector 64 Highway.node[3].prot frontDelay ETV
+64	1409066 39988 702 542323 1.213890580403 99.91388099616 988 0.099987560365 0.100009678695 98.799990976146 9.8799982250277
+vector 65 Highway.node[3].prot frontDelayId ETV
+65	1449054 27255 702 542323 1.213890580403 99.91388099616 988 3 3 2964 8892
+vector 66 Highway.node[2].prot frontDelay ETV
+66	1476309 40028 769 542402 1.229640600417 99.929645346043 988 0.099987560364 0.100009701378 98.800005306015 9.8800010909761
+vector 67 Highway.node[2].prot frontDelayId ETV
+67	1516337 27279 769 542402 1.229640600417 99.929645346043 988 2 2 1976 3952
+vector 68 Highway.node[7].prot frontDelay ETV
+68	1543616 40005 841 542486 1.254412700486 99.954420074434 988 0.099987560367 0.100009704379 98.800007934337 9.880001616625
+vector 69 Highway.node[7].prot frontDelayId ETV
+69	1583621 27264 841 542486 1.254412700486 99.954420074434 988 7 7 6916 48412
+vector 70 Highway.node[1].prot leaderDelay ETV
+70	1610885 40027 898 542537 1.254874820569 99.954895194789 988 0.099898784157 0.100100160018 98.800007934609 9.8800033602907
+vector 71 Highway.node[1].prot leaderDelayId ETV
+71	1650912 27276 898 542537 1.254874820569 99.954895194789 988 1 1 988 988
+vector 72 Highway.node[1].prot frontDelay ETV
+72	1678188 40027 898 542537 1.254874820569 99.954895194789 988 0.099898784157 0.100100160018 98.800007934609 9.8800033602907
+vector 73 Highway.node[1].prot frontDelayId ETV
+73	1718215 27276 898 542537 1.254874820569 99.954895194789 988 1 1 988 988
+vector 74 Highway.node[2].prot leaderDelay ETV
+74	1745491 40018 904 542519 1.254874840583 99.954894748355 988 0.099898783527 0.100100159388 98.800007468161 9.8800032670014
+vector 75 Highway.node[2].prot leaderDelayId ETV
+75	1785509 27264 904 542519 1.254874840583 99.954894748355 988 2 2 1976 3952
+vector 76 Highway.node[3].prot leaderDelay ETV
+76	1812773 40029 910 542525 1.254874860596 99.954894803953 988 0.09989878331 0.100100159684 98.800007503745 9.8800032741182
+vector 77 Highway.node[3].prot leaderDelayId ETV
+77	1852802 27277 910 542525 1.254874860596 99.954894803953 988 3 3 2964 8892
+vector 78 Highway.node[4].prot leaderDelay ETV
+78	1880079 40018 916 542549 1.25487488061 99.954895642407 988 0.099898784528 0.100100160389 98.800008322186 9.8800034378064
+vector 79 Highway.node[4].prot leaderDelayId ETV
+79	1920097 27274 916 542549 1.25487488061 99.954895642407 988 4 4 3952 15808
+vector 80 Highway.node[5].prot leaderDelay ETV
+80	1947371 40019 922 542543 1.254874900624 99.954895402425 988 0.099898784194 0.100100160056 98.80000806219 9.8800033858071
+vector 81 Highway.node[5].prot leaderDelayId ETV
+81	1987390 27281 922 542543 1.254874900624 99.954895402425 988 5 5 4940 24700
+vector 82 Highway.node[6].prot leaderDelay ETV
+82	2014671 40023 928 542555 1.254874920638 99.954895693146 988 0.099898784527 0.100100160389 98.800008332897 9.8800034399486
+vector 83 Highway.node[6].prot leaderDelayId ETV
+83	2054694 27266 928 542555 1.254874920638 99.954895693146 988 6 6 5928 35568
+vector 84 Highway.node[7].prot leaderDelay ETV
+84	2081960 40014 934 542531 1.254874940652 99.954895074588 988 0.099898784093 0.100100160018 98.800007694325 9.8800033122341
+vector 85 Highway.node[7].prot leaderDelayId ETV
+85	2121974 27266 934 542531 1.254874940652 99.954895074588 988 7 7 6916 48412
+vector 86 Highway.node[5].prot frontDelay ETV
+86	2149240 40025 1037 542658 1.265731020708 99.965740047867 988 0.099987560366 0.100009717388 98.800009587548 9.880001947271
+vector 87 Highway.node[5].prot frontDelayId ETV
+87	2189265 27299 1037 542658 1.265731020708 99.965740047867 988 5 5 4940 24700
+vector 88 Highway.node[4].prot frontDelay ETV
+88	2216564 39965 1107 542206 1.303542040722 99.903544013859 987 0.099852769556 0.100147721744 98.700002533526 9.8700005799748
+vector 89 Highway.node[4].prot frontDelayId ETV
+89	2256529 27240 1107 542206 1.303542040722 99.903544013859 987 4 4 3948 15792
+vector 90 Highway.node[6].prot frontDelay ETV
+90	2283769 39999 1173 542248 1.30514808075 99.905150064756 987 0.099987560365 0.100009709716 98.700002544395 9.8700005387248
+vector 91 Highway.node[6].prot frontDelayId ETV
+91	2323768 27255 1173 542248 1.30514808075 99.905150064756 987 6 6 5922 35532
+vector 92 Highway.node[0].prot nodeId ETV
+92	2351023 1459 4894 542693 2 100 99 0 0 0 0
+vector 93 Highway.node[0].prot busyTime ETV
+93	2352482 2061 4894 542693 2 100 99 0.021849 0.027188440926 2.471127440926 0.061696177420986
+vector 94 Highway.node[0].prot collisions ETV
+94	2354543 1459 4894 542693 2 100 99 0 0 0 0
+vector 95 Highway.node[1].prot nodeId ETV
+95	2356002 1459 4895 542694 2 100 99 1 1 99 99
+vector 96 Highway.node[1].prot busyTime ETV
+96	2357461 2061 4895 542694 2 100 99 0.021849 0.026950320206 2.470889320206 0.061683285860206
+vector 97 Highway.node[1].prot collisions ETV
+97	2359522 1459 4895 542694 2 100 99 0 0 0 0
+vector 98 Highway.node[2].prot nodeId ETV
+98	2360981 1459 4896 542695 2 100 99 2 2 198 396
+vector 99 Highway.node[2].prot busyTime ETV
+99	2362440 2061 4896 542695 2 100 99 0.021849 0.026923240152 2.470862240152 0.061681826961282
+vector 100 Highway.node[2].prot collisions ETV
+100	2364501 1558 4896 542695 2 100 99 0 0 0 0
+vector 101 Highway.node[3].prot nodeId ETV
+101	2366059 1558 4897 542696 2 100 99 3 3 297 891
+vector 102 Highway.node[3].prot busyTime ETV
+102	2367617 2160 4897 542696 2 100 99 0.021848 0.026890400258 2.470828400258 0.061680016030035
+vector 103 Highway.node[3].prot collisions ETV
+103	2369777 1558 4897 542696 2 100 99 0 0 0 0
+vector 104 Highway.node[4].prot nodeId ETV
+104	2371335 1558 4898 542697 2 100 99 4 4 396 1584
+vector 105 Highway.node[4].prot busyTime ETV
+105	2372893 2160 4898 542697 2 100 99 0.021849 0.026983440282 2.470922440282 0.061685072150452
+vector 106 Highway.node[4].prot collisions ETV
+106	2375053 1558 4898 542697 2 100 99 0 0 0 0
+vector 107 Highway.node[5].prot nodeId ETV
+107	2376611 1558 4899 542698 2 100 99 5 5 495 2475
+vector 108 Highway.node[5].prot busyTime ETV
+108	2378169 2160 4899 542698 2 100 99 0.021848 0.026983480308 2.470921480308 0.061685030613532
+vector 109 Highway.node[5].prot collisions ETV
+109	2380329 1558 4899 542698 2 100 99 0 0 0 0
+vector 110 Highway.node[6].prot nodeId ETV
+110	2381887 1558 4900 542699 2 100 99 6 6 594 3564
+vector 111 Highway.node[6].prot busyTime ETV
+111	2383445 2160 4900 542699 2 100 99 0.021849 0.026950440284 2.470889440284 0.061683292332501
+vector 112 Highway.node[6].prot collisions ETV
+112	2385605 1558 4900 542699 2 100 99 0 0 0 0
+vector 113 Highway.node[7].prot nodeId ETV
+113	2387163 1558 4901 542700 2 100 99 7 7 693 4851
+vector 114 Highway.node[7].prot busyTime ETV
+114	2388721 2160 4901 542700 2 100 99 0.021849 0.026890440286 2.470829440286 0.061680061879775
+vector 115 Highway.node[7].prot collisions ETV
+115	2390881 1559 4901 542700 2 100 99 0 0 0 0

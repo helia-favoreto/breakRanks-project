@@ -1,0 +1,1376 @@
+version 3
+run BreakRanksNoGui-25-20240708-17:12:09-153222
+attr configname BreakRanksNoGui
+attr datetime 20240708-17:12:09
+attr datetimef 20240708-171209
+attr experiment BreakRanksNoGui
+attr inifile omnetpp.ini
+attr iterationvars "$nCars=8, $platoonSize=8, $nLanes=1, $ploegH=0.5, $controller=1, $headway=0.1, $leaderHeadway=1.2, $leaderSpeed=110, $breakRanksSafetyDistance=5, $minSpeed=100, $maxSpeed=120, $beaconInterval=0.1, $priority=4, $packetSize=200, $sController=\"CACC\", $0=2, $1=0"
+attr iterationvarsd nCars=8/platoonSize=8/nLanes=1/ploegH=0.5/controller=1/headway=0.1/leaderHeadway=1.2/leaderSpeed=110/breakRanksSafetyDistance=5/minSpeed=100/maxSpeed=120/beaconInterval=0.1/priority=4/packetSize=200/sController=CACC/2/0
+attr iterationvarsf nCars=8,platoonSize=8,nLanes=1,ploegH=0.5,controller=1,headway=0.1,leaderHeadway=1.2,leaderSpeed=110,breakRanksSafetyDistance=5,minSpeed=100,maxSpeed=120,beaconInterval=0.1,priority=4,packetSize=200,sController=CACC,2,0-
+attr measurement "$nCars=8, $platoonSize=8, $nLanes=1, $ploegH=0.5, $controller=1, $headway=0.1, $leaderHeadway=1.2, $leaderSpeed=110, $breakRanksSafetyDistance=5, $minSpeed=100, $maxSpeed=120, $beaconInterval=0.1, $priority=4, $packetSize=200, $sController=\"CACC\", $0=2, $1=0"
+attr network Highway
+attr processid 153222
+attr repetition 5
+attr replication #5
+attr resultdir results
+attr runnumber 25
+attr seedset 5
+itervar beaconInterval 0.1
+itervar breakRanksSafetyDistance 5
+itervar controller 1
+itervar headway 0.1
+itervar leaderHeadway 1.2
+itervar leaderSpeed 110
+itervar maxSpeed 120
+itervar minSpeed 100
+itervar nCars 8
+itervar nLanes 1
+itervar packetSize 200
+itervar platoonSize 8
+itervar ploegH 0.5
+itervar priority 4
+itervar sController "\"CACC\""
+config image-path ../../../veins/images
+config repeat 10
+config extends BreakRanks
+config *.manager.command "\"sumo\""
+config *.manager.ignoreGuiCommands true
+config output-vector-file results/BreakRanks_1_0.1_110_5/result_5.vec
+config output-scalar-file results/BreakRanks_1_0.1_110_5/result_5.sca
+config extends Platooning
+config *.node[*].scenario_type "\"BreakRanksScenario\""
+config *.manager.command "\"sumo-gui\""
+config *.node[*].scenario_type "\"SimpleScenario\""
+config cmdenv-express-mode true
+config cmdenv-autoflush true
+config cmdenv-status-frequency 15s
+config num-rngs 6
+config network Highway
+config debug-on-errors true
+config print-undisposed true
+config *.playgroundSizeX 65000m
+config *.playgroundSizeY 25000m
+config *.playgroundSizeZ 50m
+config sim-time-limit "100 s"
+config *.annotations.draw false
+config *.obstacles.debug false
+config *.world.useTorus false
+config *.world.use2D false
+config *.manager.updateInterval 0.01s
+config *.manager.host "\"localhost\""
+config *.manager.moduleType "\"org.car2x.plexe.PlatoonCar\""
+config *.manager.moduleName "\"node\""
+config *.manager.moduleDisplayString "\"\""
+config *.manager.autoShutdown true
+config *.manager.margin 25
+config *.connectionManager.sendDirect true
+config *.connectionManager.maxInterfDist 2600m
+config *.connectionManager.drawMaxIntfDist false
+config *.**.nic.mac1609_4.useServiceChannel false
+config *.**.nic.mac1609_4.txPower 100mW
+config *.**.nic.mac1609_4.bitrate 6Mbps
+config *.**.nic.mac1609_4.useAcks true
+config *.**.nic.mac1609_4.ackErrorRate 0.0
+config *.**.nic.mac1609_4.frameErrorRate 0.0
+config *.**.nic.phy80211p.minPowerLevel -94dBm
+config *.**.nic.phy80211p.maxTXPower 100mW
+config *.**.nic.phy80211p.useNoiseFloor true
+config *.**.nic.phy80211p.noiseFloor -95dBm
+config *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+config *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+config *.**.nic.phy80211p.usePropagationDelay true
+config *.node[*].mobility.x 0
+config *.node[*].mobility.y 0
+config *.node[*].mobility.z 1.895
+config seed-set 5
+config **.seed 5
+config *.node[*].prot.rng-0 2
+config *.node[*].appl.rng-0 3
+config *.node[*].scenario.rng-0 4
+config **.traffic.rng-0 5
+config *.manager.configFile "\"./sumocfg/freeway.sumo.cfg\""
+config *.manager.launchConfig "xmldoc(\"./sumocfg/freeway.launchd.xml\")"
+config **.numberOfCars 8
+config **.numberOfCarsPerPlatoon 8
+config **.numberOfLanes 1
+config *.node[*].helper_type "\"PositionHelper\""
+config *.node[*].scenario.caccC1 0.5
+config *.node[*].scenario.caccXi 1
+config *.node[*].scenario.caccOmegaN "0.2 Hz"
+config *.node[*].scenario.caccSpacing "2 m"
+config *.node[*].scenario.engineTau "0.5 s"
+config *.node[*].scenario.ploegH 0.5s
+config *.node[*].scenario.ploegKp 0.2
+config *.node[*].scenario.ploegKd 0.7
+config *.node[*].scenario.useRealisticEngine false
+config *.node[*].scenario.useControllerAcceleration true
+config *.node[*].scenario.nLanes 1
+config **.numericController 1
+config **.headway 0.1s
+config *.node[*].scenario.accHeadway 0.1s
+config *.node[*].scenario.leaderHeadway 1.2s
+config *.node[*].scenario.leaderSpeed 110kmph
+config *.node[*].appl_type "\"SimplePlatooningApp\""
+config *.node[*].appl.*.scalar-recording true
+config *.node[*].appl.*.vector-recording true
+config *.node[0].appl.breakRanksSafetyDistance 5m
+config *.node[*].appl.minSpeed 100kmph
+config *.node[*].appl.maxSpeed 120kmph
+config *.node[*].protocol_type "\"SimplePlatooningBeaconing\""
+config *.node[*].prot.*.scalar-recording true
+config *.node[*].prot.*.vector-recording true
+config *.node[*].prot.beaconingInterval 0.1s
+config *.node[*].prot.priority 4
+config *.node[*].prot.packetSize 200
+config **.traffic_type "\"PlatoonsTrafficManager\""
+config **.traffic.platoonInsertTime "1 s"
+config **.traffic.platoonInsertSpeed 110kmph
+config **.traffic.nCars 8
+config **.traffic.platoonSize 8
+config **.traffic.nLanes 1
+config **.traffic.platooningVType "\"vtypeauto\""
+config **.traffic.controller "\"CACC\""
+config **.traffic.platoonInsertDistance 2m
+config **.traffic.platoonInsertHeadway 0s
+config **.traffic.platoonLeaderHeadway 1.2s
+config **.scalar-recording false
+config **.vector-recording false
+config output-vector-file results/BreakRanksNoGui_1_0.1_110_5/result_5.vec
+config output-scalar-file results/BreakRanksNoGui_1_0.1_110_5/result_5.sca
+
+par Highway.annotations typename "\"org.car2x.veins.modules.world.annotations.AnnotationManager\""
+par Highway.annotations draw false
+par Highway.annotations annotations "<annotations/> at content:1"
+par Highway.connectionManager typename "\"org.car2x.veins.base.connectionManager.ConnectionManager\""
+par Highway.connectionManager sendDirect true
+par Highway.connectionManager maxInterfDist 2600m
+attr unit m
+par Highway.connectionManager drawMaxIntfDist false
+par Highway.world typename "\"org.car2x.veins.base.modules.BaseWorldUtility\""
+par Highway.world playgroundSizeX 65000m
+attr unit m
+par Highway.world playgroundSizeY 25000m
+attr unit m
+par Highway.world playgroundSizeZ 50m
+attr unit m
+par Highway.world useTorus false
+par Highway.world use2D false
+par Highway.manager typename "\"org.car2x.plexe.traci.PlexeScenarioManagerForker\""
+par Highway.manager connectAt 0s
+attr unit s
+par Highway.manager firstStepAt -1s
+attr unit s
+par Highway.manager updateInterval 0.01s
+attr unit s
+par Highway.manager moduleType "\"org.car2x.plexe.PlatoonCar\""
+par Highway.manager moduleName "\"node\""
+par Highway.manager moduleDisplayString "\"\""
+par Highway.manager trafficLightModuleType "\"\""
+par Highway.manager trafficLightModuleName "\"tls\""
+par Highway.manager trafficLightFilter "\"\""
+par Highway.manager trafficLightModuleDisplayString "\"i=misc/node2;is=vs;r=0,,#707070,1\""
+par Highway.manager host "\"localhost\""
+par Highway.manager port -1
+par Highway.manager seed 5
+par Highway.manager autoShutdown true
+par Highway.manager margin 25
+par Highway.manager roiRoads "\"\""
+par Highway.manager roiRects "\"\""
+par Highway.manager penetrationRate 1
+par Highway.manager ignoreGuiCommands true
+par Highway.manager commandLine "\"$command --remote-port $port --seed $seed --configuration-file $configFile\""
+par Highway.manager command "\"sumo\""
+par Highway.manager configFile "\"./sumocfg/freeway.sumo.cfg\""
+par Highway.manager order -1
+par Highway.manager ignoreUnknownSubscriptionResults false
+par Highway.plexe typename "\"org.car2x.plexe.PlexeManager\""
+par Highway.traffic typename "\"org.car2x.plexe.traffic.PlatoonsTrafficManager\""
+par Highway.traffic controller "\"CACC\""
+par Highway.traffic platoonInsertTime 1s
+attr unit s
+par Highway.traffic platoonInsertSpeed 110kmph
+attr unit kmph
+par Highway.traffic nCars 8
+par Highway.traffic platoonSize 8
+par Highway.traffic nLanes 1
+par Highway.traffic platooningVType "\"vtypeauto\""
+par Highway.traffic platoonInsertDistance 2m
+attr unit m
+par Highway.traffic platoonInsertHeadway 0s
+attr unit s
+par Highway.traffic platoonLeaderHeadway 1.2s
+attr unit s
+par Highway.traffic platoonAdditionalDistance 0m
+attr unit m
+par Highway.node[0].helper typename "\"org.car2x.plexe.utilities.PositionHelper\""
+par Highway.node[0].scenario typename "\"org.car2x.plexe.scenarios.BreakRanksScenario\""
+par Highway.node[0].scenario leaderSpeed 110kmph
+attr unit kmph
+par Highway.node[0].scenario accHeadway 0.1s
+attr unit s
+par Highway.node[0].scenario leaderHeadway 1.2s
+attr unit s
+par Highway.node[0].scenario caccXi 1
+par Highway.node[0].scenario caccOmegaN 0.2Hz
+attr unit Hz
+par Highway.node[0].scenario caccC1 0.5
+par Highway.node[0].scenario caccSpacing 2m
+attr unit m
+par Highway.node[0].scenario engineTau 0.5s
+attr unit s
+par Highway.node[0].scenario uMin -1e+06mpsps
+attr unit mpsps
+par Highway.node[0].scenario uMax 1e+06mpsps
+attr unit mpsps
+par Highway.node[0].scenario ploegH 0.5s
+attr unit s
+par Highway.node[0].scenario ploegKp 0.2
+par Highway.node[0].scenario ploegKd 0.7
+par Highway.node[0].scenario flatbedKa 2.4
+par Highway.node[0].scenario flatbedKv 0.6
+par Highway.node[0].scenario flatbedKp 12
+par Highway.node[0].scenario flatbedH 4
+par Highway.node[0].scenario flatbedD 5
+par Highway.node[0].scenario useControllerAcceleration true
+par Highway.node[0].scenario usePrediction true
+par Highway.node[0].scenario vehicleFile "\"./vehicles.xml\""
+par Highway.node[0].scenario useRealisticEngine false
+par Highway.node[0].scenario vehicleType "\"\""
+par Highway.node[0].scenario headerLength 0bit
+attr unit bit
+par Highway.node[0].scenario breakRanksTime 10s
+attr unit s
+par Highway.node[0].appl typename "\"org.car2x.plexe.apps.SimplePlatooningApp\""
+par Highway.node[0].appl headerLength 0bit
+attr unit bit
+par Highway.node[0].appl breakRanksSafetyDistance 5m
+attr unit m
+par Highway.node[0].appl minSpeed 100kmph
+attr unit kmph
+par Highway.node[0].appl maxSpeed 120kmph
+attr unit kmph
+par Highway.node[0].prot typename "\"org.car2x.plexe.protocols.SimplePlatooningBeaconing\""
+par Highway.node[0].prot beaconingInterval 0.1seconds
+attr unit seconds
+par Highway.node[0].prot priority 4
+par Highway.node[0].prot packetSize 200
+par Highway.node[0].prot headerLength 0bit
+attr unit bit
+par Highway.node[0].veins11pDriver typename "\"org.car2x.plexe.driver.Veins11pRadioDriver\""
+par Highway.node[0].veins11pDriver headerLength 0bit
+attr unit bit
+par Highway.node[0].nic.phy80211p typename "\"org.car2x.veins.modules.phy.PhyLayer80211p\""
+par Highway.node[0].nic.phy80211p recordStats false
+par Highway.node[0].nic.phy80211p usePropagationDelay true
+par Highway.node[0].nic.phy80211p noiseFloor -95dBm
+attr unit dBm
+par Highway.node[0].nic.phy80211p useNoiseFloor true
+par Highway.node[0].nic.phy80211p antenna "<root>...</root> at content:1"
+par Highway.node[0].nic.phy80211p antennaOffsetX 0m
+attr unit m
+par Highway.node[0].nic.phy80211p antennaOffsetY 0m
+attr unit m
+par Highway.node[0].nic.phy80211p antennaOffsetZ 1.895m
+attr unit m
+par Highway.node[0].nic.phy80211p antennaOffsetYaw 0rad
+attr unit rad
+par Highway.node[0].nic.phy80211p analogueModels "<root>...</root> at /home/bertuzzi/src/plexe/examples/platooning//config.xml:32"
+par Highway.node[0].nic.phy80211p decider "<root>...</root> at /home/bertuzzi/src/plexe/examples/platooning//config.xml:32"
+par Highway.node[0].nic.phy80211p minPowerLevel -94dBm
+attr unit dBm
+par Highway.node[0].nic.phy80211p timeRXToTX 0s
+attr unit s
+par Highway.node[0].nic.phy80211p timeRXToSleep 0s
+attr unit s
+par Highway.node[0].nic.phy80211p timeTXToRX 0s
+attr unit s
+par Highway.node[0].nic.phy80211p timeTXToSleep 0s
+attr unit s
+par Highway.node[0].nic.phy80211p timeSleepToRX 0s
+attr unit s
+par Highway.node[0].nic.phy80211p timeSleepToTX 0s
+attr unit s
+par Highway.node[0].nic.phy80211p initialRadioState 0
+par Highway.node[0].nic.phy80211p radioMinAtt 1
+par Highway.node[0].nic.phy80211p radioMaxAtt 0
+par Highway.node[0].nic.phy80211p nbRadioChannels 1
+par Highway.node[0].nic.phy80211p initialRadioChannel 0
+par Highway.node[0].nic.phy80211p ccaThreshold -65dBm
+attr unit dBm
+par Highway.node[0].nic.phy80211p collectCollisionStatistics false
+par Highway.node[0].nic.phy80211p allowTxDuringRx false
+par Highway.node[0].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
+par Highway.node[0].nic.mac1609_4 notAffectedByHostState false
+par Highway.node[0].nic.mac1609_4 headerLength 0bit
+attr unit bit
+par Highway.node[0].nic.mac1609_4 address "\"auto\""
+par Highway.node[0].nic.mac1609_4 useServiceChannel false
+par Highway.node[0].nic.mac1609_4 serviceChannel 1
+par Highway.node[0].nic.mac1609_4 bitrate 6000000bps
+attr unit bps
+par Highway.node[0].nic.mac1609_4 syncOffset 0.0003s
+attr unit s
+par Highway.node[0].nic.mac1609_4 txPower 100mW
+attr unit mW
+par Highway.node[0].nic.mac1609_4 queueSize 0
+par Highway.node[0].nic.mac1609_4 dot11RTSThreshold 12000bit
+attr unit bit
+par Highway.node[0].nic.mac1609_4 dot11ShortRetryLimit 7
+par Highway.node[0].nic.mac1609_4 dot11LongRetryLimit 4
+par Highway.node[0].nic.mac1609_4 ackLength 112bit
+attr unit bit
+par Highway.node[0].nic.mac1609_4 useAcks true
+par Highway.node[0].nic.mac1609_4 frameErrorRate 0
+par Highway.node[0].nic.mac1609_4 ackErrorRate 0
+par Highway.node[0].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
+par Highway.node[0].nic connectionManagerName "\"connectionManager\""
+par Highway.node[0].mobility typename "\"org.car2x.veins.modules.mobility.traci.TraCIMobility\""
+par Highway.node[0].mobility notAffectedByHostState true
+par Highway.node[0].mobility x 0
+par Highway.node[0].mobility y 0
+par Highway.node[0].mobility z 1.895
+par Highway.node[0].mobility xOrientation 1
+par Highway.node[0].mobility yOrientation 0
+par Highway.node[0].mobility zOrientation 0
+par Highway.node[0].mobility hostPositionOffset 0m
+attr unit m
+par Highway.node[0].mobility setHostSpeed false
+par Highway.node[0].mobility accidentCount 0
+par Highway.node[0].mobility accidentStart 49.3243s
+attr unit s
+par Highway.node[0].mobility accidentDuration "uniform(30s, 60s)"
+attr unit s
+par Highway.node[0].mobility accidentInterval "uniform(30s, 60s)"
+attr unit s
+par Highway.node[0] typename "\"org.car2x.plexe.PlatoonCar\""
+par Highway.node[0] scenario_type "\"BreakRanksScenario\""
+par Highway.node[0] helper_type "\"PositionHelper\""
+par Highway.node[0] appl_type "\"SimplePlatooningApp\""
+par Highway.node[0] protocol_type "\"SimplePlatooningBeaconing\""
+par Highway.node[1].helper typename "\"org.car2x.plexe.utilities.PositionHelper\""
+par Highway.node[1].scenario typename "\"org.car2x.plexe.scenarios.BreakRanksScenario\""
+par Highway.node[1].scenario leaderSpeed 110kmph
+attr unit kmph
+par Highway.node[1].scenario accHeadway 0.1s
+attr unit s
+par Highway.node[1].scenario leaderHeadway 1.2s
+attr unit s
+par Highway.node[1].scenario caccXi 1
+par Highway.node[1].scenario caccOmegaN 0.2Hz
+attr unit Hz
+par Highway.node[1].scenario caccC1 0.5
+par Highway.node[1].scenario caccSpacing 2m
+attr unit m
+par Highway.node[1].scenario engineTau 0.5s
+attr unit s
+par Highway.node[1].scenario uMin -1e+06mpsps
+attr unit mpsps
+par Highway.node[1].scenario uMax 1e+06mpsps
+attr unit mpsps
+par Highway.node[1].scenario ploegH 0.5s
+attr unit s
+par Highway.node[1].scenario ploegKp 0.2
+par Highway.node[1].scenario ploegKd 0.7
+par Highway.node[1].scenario flatbedKa 2.4
+par Highway.node[1].scenario flatbedKv 0.6
+par Highway.node[1].scenario flatbedKp 12
+par Highway.node[1].scenario flatbedH 4
+par Highway.node[1].scenario flatbedD 5
+par Highway.node[1].scenario useControllerAcceleration true
+par Highway.node[1].scenario usePrediction true
+par Highway.node[1].scenario vehicleFile "\"./vehicles.xml\""
+par Highway.node[1].scenario useRealisticEngine false
+par Highway.node[1].scenario vehicleType "\"\""
+par Highway.node[1].scenario headerLength 0bit
+attr unit bit
+par Highway.node[1].scenario breakRanksTime 10s
+attr unit s
+par Highway.node[1].appl typename "\"org.car2x.plexe.apps.SimplePlatooningApp\""
+par Highway.node[1].appl headerLength 0bit
+attr unit bit
+par Highway.node[1].appl breakRanksSafetyDistance 15m
+attr unit m
+par Highway.node[1].appl minSpeed 100kmph
+attr unit kmph
+par Highway.node[1].appl maxSpeed 120kmph
+attr unit kmph
+par Highway.node[1].prot typename "\"org.car2x.plexe.protocols.SimplePlatooningBeaconing\""
+par Highway.node[1].prot beaconingInterval 0.1seconds
+attr unit seconds
+par Highway.node[1].prot priority 4
+par Highway.node[1].prot packetSize 200
+par Highway.node[1].prot headerLength 0bit
+attr unit bit
+par Highway.node[1].veins11pDriver typename "\"org.car2x.plexe.driver.Veins11pRadioDriver\""
+par Highway.node[1].veins11pDriver headerLength 0bit
+attr unit bit
+par Highway.node[1].nic.phy80211p typename "\"org.car2x.veins.modules.phy.PhyLayer80211p\""
+par Highway.node[1].nic.phy80211p recordStats false
+par Highway.node[1].nic.phy80211p usePropagationDelay true
+par Highway.node[1].nic.phy80211p noiseFloor -95dBm
+attr unit dBm
+par Highway.node[1].nic.phy80211p useNoiseFloor true
+par Highway.node[1].nic.phy80211p antenna "<root>...</root> at content:1"
+par Highway.node[1].nic.phy80211p antennaOffsetX 0m
+attr unit m
+par Highway.node[1].nic.phy80211p antennaOffsetY 0m
+attr unit m
+par Highway.node[1].nic.phy80211p antennaOffsetZ 1.895m
+attr unit m
+par Highway.node[1].nic.phy80211p antennaOffsetYaw 0rad
+attr unit rad
+par Highway.node[1].nic.phy80211p analogueModels "<root>...</root> at /home/bertuzzi/src/plexe/examples/platooning//config.xml:32"
+par Highway.node[1].nic.phy80211p decider "<root>...</root> at /home/bertuzzi/src/plexe/examples/platooning//config.xml:32"
+par Highway.node[1].nic.phy80211p minPowerLevel -94dBm
+attr unit dBm
+par Highway.node[1].nic.phy80211p timeRXToTX 0s
+attr unit s
+par Highway.node[1].nic.phy80211p timeRXToSleep 0s
+attr unit s
+par Highway.node[1].nic.phy80211p timeTXToRX 0s
+attr unit s
+par Highway.node[1].nic.phy80211p timeTXToSleep 0s
+attr unit s
+par Highway.node[1].nic.phy80211p timeSleepToRX 0s
+attr unit s
+par Highway.node[1].nic.phy80211p timeSleepToTX 0s
+attr unit s
+par Highway.node[1].nic.phy80211p initialRadioState 0
+par Highway.node[1].nic.phy80211p radioMinAtt 1
+par Highway.node[1].nic.phy80211p radioMaxAtt 0
+par Highway.node[1].nic.phy80211p nbRadioChannels 1
+par Highway.node[1].nic.phy80211p initialRadioChannel 0
+par Highway.node[1].nic.phy80211p ccaThreshold -65dBm
+attr unit dBm
+par Highway.node[1].nic.phy80211p collectCollisionStatistics false
+par Highway.node[1].nic.phy80211p allowTxDuringRx false
+par Highway.node[1].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
+par Highway.node[1].nic.mac1609_4 notAffectedByHostState false
+par Highway.node[1].nic.mac1609_4 headerLength 0bit
+attr unit bit
+par Highway.node[1].nic.mac1609_4 address "\"auto\""
+par Highway.node[1].nic.mac1609_4 useServiceChannel false
+par Highway.node[1].nic.mac1609_4 serviceChannel 1
+par Highway.node[1].nic.mac1609_4 bitrate 6000000bps
+attr unit bps
+par Highway.node[1].nic.mac1609_4 syncOffset 0.0003s
+attr unit s
+par Highway.node[1].nic.mac1609_4 txPower 100mW
+attr unit mW
+par Highway.node[1].nic.mac1609_4 queueSize 0
+par Highway.node[1].nic.mac1609_4 dot11RTSThreshold 12000bit
+attr unit bit
+par Highway.node[1].nic.mac1609_4 dot11ShortRetryLimit 7
+par Highway.node[1].nic.mac1609_4 dot11LongRetryLimit 4
+par Highway.node[1].nic.mac1609_4 ackLength 112bit
+attr unit bit
+par Highway.node[1].nic.mac1609_4 useAcks true
+par Highway.node[1].nic.mac1609_4 frameErrorRate 0
+par Highway.node[1].nic.mac1609_4 ackErrorRate 0
+par Highway.node[1].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
+par Highway.node[1].nic connectionManagerName "\"connectionManager\""
+par Highway.node[1].mobility typename "\"org.car2x.veins.modules.mobility.traci.TraCIMobility\""
+par Highway.node[1].mobility notAffectedByHostState true
+par Highway.node[1].mobility x 0
+par Highway.node[1].mobility y 0
+par Highway.node[1].mobility z 1.895
+par Highway.node[1].mobility xOrientation 1
+par Highway.node[1].mobility yOrientation 0
+par Highway.node[1].mobility zOrientation 0
+par Highway.node[1].mobility hostPositionOffset 0m
+attr unit m
+par Highway.node[1].mobility setHostSpeed false
+par Highway.node[1].mobility accidentCount 0
+par Highway.node[1].mobility accidentStart 49.8914s
+attr unit s
+par Highway.node[1].mobility accidentDuration "uniform(30s, 60s)"
+attr unit s
+par Highway.node[1].mobility accidentInterval "uniform(30s, 60s)"
+attr unit s
+par Highway.node[1] typename "\"org.car2x.plexe.PlatoonCar\""
+par Highway.node[1] scenario_type "\"BreakRanksScenario\""
+par Highway.node[1] helper_type "\"PositionHelper\""
+par Highway.node[1] appl_type "\"SimplePlatooningApp\""
+par Highway.node[1] protocol_type "\"SimplePlatooningBeaconing\""
+par Highway.node[2].helper typename "\"org.car2x.plexe.utilities.PositionHelper\""
+par Highway.node[2].scenario typename "\"org.car2x.plexe.scenarios.BreakRanksScenario\""
+par Highway.node[2].scenario leaderSpeed 110kmph
+attr unit kmph
+par Highway.node[2].scenario accHeadway 0.1s
+attr unit s
+par Highway.node[2].scenario leaderHeadway 1.2s
+attr unit s
+par Highway.node[2].scenario caccXi 1
+par Highway.node[2].scenario caccOmegaN 0.2Hz
+attr unit Hz
+par Highway.node[2].scenario caccC1 0.5
+par Highway.node[2].scenario caccSpacing 2m
+attr unit m
+par Highway.node[2].scenario engineTau 0.5s
+attr unit s
+par Highway.node[2].scenario uMin -1e+06mpsps
+attr unit mpsps
+par Highway.node[2].scenario uMax 1e+06mpsps
+attr unit mpsps
+par Highway.node[2].scenario ploegH 0.5s
+attr unit s
+par Highway.node[2].scenario ploegKp 0.2
+par Highway.node[2].scenario ploegKd 0.7
+par Highway.node[2].scenario flatbedKa 2.4
+par Highway.node[2].scenario flatbedKv 0.6
+par Highway.node[2].scenario flatbedKp 12
+par Highway.node[2].scenario flatbedH 4
+par Highway.node[2].scenario flatbedD 5
+par Highway.node[2].scenario useControllerAcceleration true
+par Highway.node[2].scenario usePrediction true
+par Highway.node[2].scenario vehicleFile "\"./vehicles.xml\""
+par Highway.node[2].scenario useRealisticEngine false
+par Highway.node[2].scenario vehicleType "\"\""
+par Highway.node[2].scenario headerLength 0bit
+attr unit bit
+par Highway.node[2].scenario breakRanksTime 10s
+attr unit s
+par Highway.node[2].appl typename "\"org.car2x.plexe.apps.SimplePlatooningApp\""
+par Highway.node[2].appl headerLength 0bit
+attr unit bit
+par Highway.node[2].appl breakRanksSafetyDistance 15m
+attr unit m
+par Highway.node[2].appl minSpeed 100kmph
+attr unit kmph
+par Highway.node[2].appl maxSpeed 120kmph
+attr unit kmph
+par Highway.node[2].prot typename "\"org.car2x.plexe.protocols.SimplePlatooningBeaconing\""
+par Highway.node[2].prot beaconingInterval 0.1seconds
+attr unit seconds
+par Highway.node[2].prot priority 4
+par Highway.node[2].prot packetSize 200
+par Highway.node[2].prot headerLength 0bit
+attr unit bit
+par Highway.node[2].veins11pDriver typename "\"org.car2x.plexe.driver.Veins11pRadioDriver\""
+par Highway.node[2].veins11pDriver headerLength 0bit
+attr unit bit
+par Highway.node[2].nic.phy80211p typename "\"org.car2x.veins.modules.phy.PhyLayer80211p\""
+par Highway.node[2].nic.phy80211p recordStats false
+par Highway.node[2].nic.phy80211p usePropagationDelay true
+par Highway.node[2].nic.phy80211p noiseFloor -95dBm
+attr unit dBm
+par Highway.node[2].nic.phy80211p useNoiseFloor true
+par Highway.node[2].nic.phy80211p antenna "<root>...</root> at content:1"
+par Highway.node[2].nic.phy80211p antennaOffsetX 0m
+attr unit m
+par Highway.node[2].nic.phy80211p antennaOffsetY 0m
+attr unit m
+par Highway.node[2].nic.phy80211p antennaOffsetZ 1.895m
+attr unit m
+par Highway.node[2].nic.phy80211p antennaOffsetYaw 0rad
+attr unit rad
+par Highway.node[2].nic.phy80211p analogueModels "<root>...</root> at /home/bertuzzi/src/plexe/examples/platooning//config.xml:32"
+par Highway.node[2].nic.phy80211p decider "<root>...</root> at /home/bertuzzi/src/plexe/examples/platooning//config.xml:32"
+par Highway.node[2].nic.phy80211p minPowerLevel -94dBm
+attr unit dBm
+par Highway.node[2].nic.phy80211p timeRXToTX 0s
+attr unit s
+par Highway.node[2].nic.phy80211p timeRXToSleep 0s
+attr unit s
+par Highway.node[2].nic.phy80211p timeTXToRX 0s
+attr unit s
+par Highway.node[2].nic.phy80211p timeTXToSleep 0s
+attr unit s
+par Highway.node[2].nic.phy80211p timeSleepToRX 0s
+attr unit s
+par Highway.node[2].nic.phy80211p timeSleepToTX 0s
+attr unit s
+par Highway.node[2].nic.phy80211p initialRadioState 0
+par Highway.node[2].nic.phy80211p radioMinAtt 1
+par Highway.node[2].nic.phy80211p radioMaxAtt 0
+par Highway.node[2].nic.phy80211p nbRadioChannels 1
+par Highway.node[2].nic.phy80211p initialRadioChannel 0
+par Highway.node[2].nic.phy80211p ccaThreshold -65dBm
+attr unit dBm
+par Highway.node[2].nic.phy80211p collectCollisionStatistics false
+par Highway.node[2].nic.phy80211p allowTxDuringRx false
+par Highway.node[2].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
+par Highway.node[2].nic.mac1609_4 notAffectedByHostState false
+par Highway.node[2].nic.mac1609_4 headerLength 0bit
+attr unit bit
+par Highway.node[2].nic.mac1609_4 address "\"auto\""
+par Highway.node[2].nic.mac1609_4 useServiceChannel false
+par Highway.node[2].nic.mac1609_4 serviceChannel 1
+par Highway.node[2].nic.mac1609_4 bitrate 6000000bps
+attr unit bps
+par Highway.node[2].nic.mac1609_4 syncOffset 0.0003s
+attr unit s
+par Highway.node[2].nic.mac1609_4 txPower 100mW
+attr unit mW
+par Highway.node[2].nic.mac1609_4 queueSize 0
+par Highway.node[2].nic.mac1609_4 dot11RTSThreshold 12000bit
+attr unit bit
+par Highway.node[2].nic.mac1609_4 dot11ShortRetryLimit 7
+par Highway.node[2].nic.mac1609_4 dot11LongRetryLimit 4
+par Highway.node[2].nic.mac1609_4 ackLength 112bit
+attr unit bit
+par Highway.node[2].nic.mac1609_4 useAcks true
+par Highway.node[2].nic.mac1609_4 frameErrorRate 0
+par Highway.node[2].nic.mac1609_4 ackErrorRate 0
+par Highway.node[2].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
+par Highway.node[2].nic connectionManagerName "\"connectionManager\""
+par Highway.node[2].mobility typename "\"org.car2x.veins.modules.mobility.traci.TraCIMobility\""
+par Highway.node[2].mobility notAffectedByHostState true
+par Highway.node[2].mobility x 0
+par Highway.node[2].mobility y 0
+par Highway.node[2].mobility z 1.895
+par Highway.node[2].mobility xOrientation 1
+par Highway.node[2].mobility yOrientation 0
+par Highway.node[2].mobility zOrientation 0
+par Highway.node[2].mobility hostPositionOffset 0m
+attr unit m
+par Highway.node[2].mobility setHostSpeed false
+par Highway.node[2].mobility accidentCount 0
+par Highway.node[2].mobility accidentStart 58.8782s
+attr unit s
+par Highway.node[2].mobility accidentDuration "uniform(30s, 60s)"
+attr unit s
+par Highway.node[2].mobility accidentInterval "uniform(30s, 60s)"
+attr unit s
+par Highway.node[2] typename "\"org.car2x.plexe.PlatoonCar\""
+par Highway.node[2] scenario_type "\"BreakRanksScenario\""
+par Highway.node[2] helper_type "\"PositionHelper\""
+par Highway.node[2] appl_type "\"SimplePlatooningApp\""
+par Highway.node[2] protocol_type "\"SimplePlatooningBeaconing\""
+par Highway.node[3].helper typename "\"org.car2x.plexe.utilities.PositionHelper\""
+par Highway.node[3].scenario typename "\"org.car2x.plexe.scenarios.BreakRanksScenario\""
+par Highway.node[3].scenario leaderSpeed 110kmph
+attr unit kmph
+par Highway.node[3].scenario accHeadway 0.1s
+attr unit s
+par Highway.node[3].scenario leaderHeadway 1.2s
+attr unit s
+par Highway.node[3].scenario caccXi 1
+par Highway.node[3].scenario caccOmegaN 0.2Hz
+attr unit Hz
+par Highway.node[3].scenario caccC1 0.5
+par Highway.node[3].scenario caccSpacing 2m
+attr unit m
+par Highway.node[3].scenario engineTau 0.5s
+attr unit s
+par Highway.node[3].scenario uMin -1e+06mpsps
+attr unit mpsps
+par Highway.node[3].scenario uMax 1e+06mpsps
+attr unit mpsps
+par Highway.node[3].scenario ploegH 0.5s
+attr unit s
+par Highway.node[3].scenario ploegKp 0.2
+par Highway.node[3].scenario ploegKd 0.7
+par Highway.node[3].scenario flatbedKa 2.4
+par Highway.node[3].scenario flatbedKv 0.6
+par Highway.node[3].scenario flatbedKp 12
+par Highway.node[3].scenario flatbedH 4
+par Highway.node[3].scenario flatbedD 5
+par Highway.node[3].scenario useControllerAcceleration true
+par Highway.node[3].scenario usePrediction true
+par Highway.node[3].scenario vehicleFile "\"./vehicles.xml\""
+par Highway.node[3].scenario useRealisticEngine false
+par Highway.node[3].scenario vehicleType "\"\""
+par Highway.node[3].scenario headerLength 0bit
+attr unit bit
+par Highway.node[3].scenario breakRanksTime 10s
+attr unit s
+par Highway.node[3].appl typename "\"org.car2x.plexe.apps.SimplePlatooningApp\""
+par Highway.node[3].appl headerLength 0bit
+attr unit bit
+par Highway.node[3].appl breakRanksSafetyDistance 15m
+attr unit m
+par Highway.node[3].appl minSpeed 100kmph
+attr unit kmph
+par Highway.node[3].appl maxSpeed 120kmph
+attr unit kmph
+par Highway.node[3].prot typename "\"org.car2x.plexe.protocols.SimplePlatooningBeaconing\""
+par Highway.node[3].prot beaconingInterval 0.1seconds
+attr unit seconds
+par Highway.node[3].prot priority 4
+par Highway.node[3].prot packetSize 200
+par Highway.node[3].prot headerLength 0bit
+attr unit bit
+par Highway.node[3].veins11pDriver typename "\"org.car2x.plexe.driver.Veins11pRadioDriver\""
+par Highway.node[3].veins11pDriver headerLength 0bit
+attr unit bit
+par Highway.node[3].nic.phy80211p typename "\"org.car2x.veins.modules.phy.PhyLayer80211p\""
+par Highway.node[3].nic.phy80211p recordStats false
+par Highway.node[3].nic.phy80211p usePropagationDelay true
+par Highway.node[3].nic.phy80211p noiseFloor -95dBm
+attr unit dBm
+par Highway.node[3].nic.phy80211p useNoiseFloor true
+par Highway.node[3].nic.phy80211p antenna "<root>...</root> at content:1"
+par Highway.node[3].nic.phy80211p antennaOffsetX 0m
+attr unit m
+par Highway.node[3].nic.phy80211p antennaOffsetY 0m
+attr unit m
+par Highway.node[3].nic.phy80211p antennaOffsetZ 1.895m
+attr unit m
+par Highway.node[3].nic.phy80211p antennaOffsetYaw 0rad
+attr unit rad
+par Highway.node[3].nic.phy80211p analogueModels "<root>...</root> at /home/bertuzzi/src/plexe/examples/platooning//config.xml:32"
+par Highway.node[3].nic.phy80211p decider "<root>...</root> at /home/bertuzzi/src/plexe/examples/platooning//config.xml:32"
+par Highway.node[3].nic.phy80211p minPowerLevel -94dBm
+attr unit dBm
+par Highway.node[3].nic.phy80211p timeRXToTX 0s
+attr unit s
+par Highway.node[3].nic.phy80211p timeRXToSleep 0s
+attr unit s
+par Highway.node[3].nic.phy80211p timeTXToRX 0s
+attr unit s
+par Highway.node[3].nic.phy80211p timeTXToSleep 0s
+attr unit s
+par Highway.node[3].nic.phy80211p timeSleepToRX 0s
+attr unit s
+par Highway.node[3].nic.phy80211p timeSleepToTX 0s
+attr unit s
+par Highway.node[3].nic.phy80211p initialRadioState 0
+par Highway.node[3].nic.phy80211p radioMinAtt 1
+par Highway.node[3].nic.phy80211p radioMaxAtt 0
+par Highway.node[3].nic.phy80211p nbRadioChannels 1
+par Highway.node[3].nic.phy80211p initialRadioChannel 0
+par Highway.node[3].nic.phy80211p ccaThreshold -65dBm
+attr unit dBm
+par Highway.node[3].nic.phy80211p collectCollisionStatistics false
+par Highway.node[3].nic.phy80211p allowTxDuringRx false
+par Highway.node[3].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
+par Highway.node[3].nic.mac1609_4 notAffectedByHostState false
+par Highway.node[3].nic.mac1609_4 headerLength 0bit
+attr unit bit
+par Highway.node[3].nic.mac1609_4 address "\"auto\""
+par Highway.node[3].nic.mac1609_4 useServiceChannel false
+par Highway.node[3].nic.mac1609_4 serviceChannel 1
+par Highway.node[3].nic.mac1609_4 bitrate 6000000bps
+attr unit bps
+par Highway.node[3].nic.mac1609_4 syncOffset 0.0003s
+attr unit s
+par Highway.node[3].nic.mac1609_4 txPower 100mW
+attr unit mW
+par Highway.node[3].nic.mac1609_4 queueSize 0
+par Highway.node[3].nic.mac1609_4 dot11RTSThreshold 12000bit
+attr unit bit
+par Highway.node[3].nic.mac1609_4 dot11ShortRetryLimit 7
+par Highway.node[3].nic.mac1609_4 dot11LongRetryLimit 4
+par Highway.node[3].nic.mac1609_4 ackLength 112bit
+attr unit bit
+par Highway.node[3].nic.mac1609_4 useAcks true
+par Highway.node[3].nic.mac1609_4 frameErrorRate 0
+par Highway.node[3].nic.mac1609_4 ackErrorRate 0
+par Highway.node[3].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
+par Highway.node[3].nic connectionManagerName "\"connectionManager\""
+par Highway.node[3].mobility typename "\"org.car2x.veins.modules.mobility.traci.TraCIMobility\""
+par Highway.node[3].mobility notAffectedByHostState true
+par Highway.node[3].mobility x 0
+par Highway.node[3].mobility y 0
+par Highway.node[3].mobility z 1.895
+par Highway.node[3].mobility xOrientation 1
+par Highway.node[3].mobility yOrientation 0
+par Highway.node[3].mobility zOrientation 0
+par Highway.node[3].mobility hostPositionOffset 0m
+attr unit m
+par Highway.node[3].mobility setHostSpeed false
+par Highway.node[3].mobility accidentCount 0
+par Highway.node[3].mobility accidentStart 59.7525s
+attr unit s
+par Highway.node[3].mobility accidentDuration "uniform(30s, 60s)"
+attr unit s
+par Highway.node[3].mobility accidentInterval "uniform(30s, 60s)"
+attr unit s
+par Highway.node[3] typename "\"org.car2x.plexe.PlatoonCar\""
+par Highway.node[3] scenario_type "\"BreakRanksScenario\""
+par Highway.node[3] helper_type "\"PositionHelper\""
+par Highway.node[3] appl_type "\"SimplePlatooningApp\""
+par Highway.node[3] protocol_type "\"SimplePlatooningBeaconing\""
+par Highway.node[4].helper typename "\"org.car2x.plexe.utilities.PositionHelper\""
+par Highway.node[4].scenario typename "\"org.car2x.plexe.scenarios.BreakRanksScenario\""
+par Highway.node[4].scenario leaderSpeed 110kmph
+attr unit kmph
+par Highway.node[4].scenario accHeadway 0.1s
+attr unit s
+par Highway.node[4].scenario leaderHeadway 1.2s
+attr unit s
+par Highway.node[4].scenario caccXi 1
+par Highway.node[4].scenario caccOmegaN 0.2Hz
+attr unit Hz
+par Highway.node[4].scenario caccC1 0.5
+par Highway.node[4].scenario caccSpacing 2m
+attr unit m
+par Highway.node[4].scenario engineTau 0.5s
+attr unit s
+par Highway.node[4].scenario uMin -1e+06mpsps
+attr unit mpsps
+par Highway.node[4].scenario uMax 1e+06mpsps
+attr unit mpsps
+par Highway.node[4].scenario ploegH 0.5s
+attr unit s
+par Highway.node[4].scenario ploegKp 0.2
+par Highway.node[4].scenario ploegKd 0.7
+par Highway.node[4].scenario flatbedKa 2.4
+par Highway.node[4].scenario flatbedKv 0.6
+par Highway.node[4].scenario flatbedKp 12
+par Highway.node[4].scenario flatbedH 4
+par Highway.node[4].scenario flatbedD 5
+par Highway.node[4].scenario useControllerAcceleration true
+par Highway.node[4].scenario usePrediction true
+par Highway.node[4].scenario vehicleFile "\"./vehicles.xml\""
+par Highway.node[4].scenario useRealisticEngine false
+par Highway.node[4].scenario vehicleType "\"\""
+par Highway.node[4].scenario headerLength 0bit
+attr unit bit
+par Highway.node[4].scenario breakRanksTime 10s
+attr unit s
+par Highway.node[4].appl typename "\"org.car2x.plexe.apps.SimplePlatooningApp\""
+par Highway.node[4].appl headerLength 0bit
+attr unit bit
+par Highway.node[4].appl breakRanksSafetyDistance 15m
+attr unit m
+par Highway.node[4].appl minSpeed 100kmph
+attr unit kmph
+par Highway.node[4].appl maxSpeed 120kmph
+attr unit kmph
+par Highway.node[4].prot typename "\"org.car2x.plexe.protocols.SimplePlatooningBeaconing\""
+par Highway.node[4].prot beaconingInterval 0.1seconds
+attr unit seconds
+par Highway.node[4].prot priority 4
+par Highway.node[4].prot packetSize 200
+par Highway.node[4].prot headerLength 0bit
+attr unit bit
+par Highway.node[4].veins11pDriver typename "\"org.car2x.plexe.driver.Veins11pRadioDriver\""
+par Highway.node[4].veins11pDriver headerLength 0bit
+attr unit bit
+par Highway.node[4].nic.phy80211p typename "\"org.car2x.veins.modules.phy.PhyLayer80211p\""
+par Highway.node[4].nic.phy80211p recordStats false
+par Highway.node[4].nic.phy80211p usePropagationDelay true
+par Highway.node[4].nic.phy80211p noiseFloor -95dBm
+attr unit dBm
+par Highway.node[4].nic.phy80211p useNoiseFloor true
+par Highway.node[4].nic.phy80211p antenna "<root>...</root> at content:1"
+par Highway.node[4].nic.phy80211p antennaOffsetX 0m
+attr unit m
+par Highway.node[4].nic.phy80211p antennaOffsetY 0m
+attr unit m
+par Highway.node[4].nic.phy80211p antennaOffsetZ 1.895m
+attr unit m
+par Highway.node[4].nic.phy80211p antennaOffsetYaw 0rad
+attr unit rad
+par Highway.node[4].nic.phy80211p analogueModels "<root>...</root> at /home/bertuzzi/src/plexe/examples/platooning//config.xml:32"
+par Highway.node[4].nic.phy80211p decider "<root>...</root> at /home/bertuzzi/src/plexe/examples/platooning//config.xml:32"
+par Highway.node[4].nic.phy80211p minPowerLevel -94dBm
+attr unit dBm
+par Highway.node[4].nic.phy80211p timeRXToTX 0s
+attr unit s
+par Highway.node[4].nic.phy80211p timeRXToSleep 0s
+attr unit s
+par Highway.node[4].nic.phy80211p timeTXToRX 0s
+attr unit s
+par Highway.node[4].nic.phy80211p timeTXToSleep 0s
+attr unit s
+par Highway.node[4].nic.phy80211p timeSleepToRX 0s
+attr unit s
+par Highway.node[4].nic.phy80211p timeSleepToTX 0s
+attr unit s
+par Highway.node[4].nic.phy80211p initialRadioState 0
+par Highway.node[4].nic.phy80211p radioMinAtt 1
+par Highway.node[4].nic.phy80211p radioMaxAtt 0
+par Highway.node[4].nic.phy80211p nbRadioChannels 1
+par Highway.node[4].nic.phy80211p initialRadioChannel 0
+par Highway.node[4].nic.phy80211p ccaThreshold -65dBm
+attr unit dBm
+par Highway.node[4].nic.phy80211p collectCollisionStatistics false
+par Highway.node[4].nic.phy80211p allowTxDuringRx false
+par Highway.node[4].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
+par Highway.node[4].nic.mac1609_4 notAffectedByHostState false
+par Highway.node[4].nic.mac1609_4 headerLength 0bit
+attr unit bit
+par Highway.node[4].nic.mac1609_4 address "\"auto\""
+par Highway.node[4].nic.mac1609_4 useServiceChannel false
+par Highway.node[4].nic.mac1609_4 serviceChannel 1
+par Highway.node[4].nic.mac1609_4 bitrate 6000000bps
+attr unit bps
+par Highway.node[4].nic.mac1609_4 syncOffset 0.0003s
+attr unit s
+par Highway.node[4].nic.mac1609_4 txPower 100mW
+attr unit mW
+par Highway.node[4].nic.mac1609_4 queueSize 0
+par Highway.node[4].nic.mac1609_4 dot11RTSThreshold 12000bit
+attr unit bit
+par Highway.node[4].nic.mac1609_4 dot11ShortRetryLimit 7
+par Highway.node[4].nic.mac1609_4 dot11LongRetryLimit 4
+par Highway.node[4].nic.mac1609_4 ackLength 112bit
+attr unit bit
+par Highway.node[4].nic.mac1609_4 useAcks true
+par Highway.node[4].nic.mac1609_4 frameErrorRate 0
+par Highway.node[4].nic.mac1609_4 ackErrorRate 0
+par Highway.node[4].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
+par Highway.node[4].nic connectionManagerName "\"connectionManager\""
+par Highway.node[4].mobility typename "\"org.car2x.veins.modules.mobility.traci.TraCIMobility\""
+par Highway.node[4].mobility notAffectedByHostState true
+par Highway.node[4].mobility x 0
+par Highway.node[4].mobility y 0
+par Highway.node[4].mobility z 1.895
+par Highway.node[4].mobility xOrientation 1
+par Highway.node[4].mobility yOrientation 0
+par Highway.node[4].mobility zOrientation 0
+par Highway.node[4].mobility hostPositionOffset 0m
+attr unit m
+par Highway.node[4].mobility setHostSpeed false
+par Highway.node[4].mobility accidentCount 0
+par Highway.node[4].mobility accidentStart 47.5708s
+attr unit s
+par Highway.node[4].mobility accidentDuration "uniform(30s, 60s)"
+attr unit s
+par Highway.node[4].mobility accidentInterval "uniform(30s, 60s)"
+attr unit s
+par Highway.node[4] typename "\"org.car2x.plexe.PlatoonCar\""
+par Highway.node[4] scenario_type "\"BreakRanksScenario\""
+par Highway.node[4] helper_type "\"PositionHelper\""
+par Highway.node[4] appl_type "\"SimplePlatooningApp\""
+par Highway.node[4] protocol_type "\"SimplePlatooningBeaconing\""
+par Highway.node[5].helper typename "\"org.car2x.plexe.utilities.PositionHelper\""
+par Highway.node[5].scenario typename "\"org.car2x.plexe.scenarios.BreakRanksScenario\""
+par Highway.node[5].scenario leaderSpeed 110kmph
+attr unit kmph
+par Highway.node[5].scenario accHeadway 0.1s
+attr unit s
+par Highway.node[5].scenario leaderHeadway 1.2s
+attr unit s
+par Highway.node[5].scenario caccXi 1
+par Highway.node[5].scenario caccOmegaN 0.2Hz
+attr unit Hz
+par Highway.node[5].scenario caccC1 0.5
+par Highway.node[5].scenario caccSpacing 2m
+attr unit m
+par Highway.node[5].scenario engineTau 0.5s
+attr unit s
+par Highway.node[5].scenario uMin -1e+06mpsps
+attr unit mpsps
+par Highway.node[5].scenario uMax 1e+06mpsps
+attr unit mpsps
+par Highway.node[5].scenario ploegH 0.5s
+attr unit s
+par Highway.node[5].scenario ploegKp 0.2
+par Highway.node[5].scenario ploegKd 0.7
+par Highway.node[5].scenario flatbedKa 2.4
+par Highway.node[5].scenario flatbedKv 0.6
+par Highway.node[5].scenario flatbedKp 12
+par Highway.node[5].scenario flatbedH 4
+par Highway.node[5].scenario flatbedD 5
+par Highway.node[5].scenario useControllerAcceleration true
+par Highway.node[5].scenario usePrediction true
+par Highway.node[5].scenario vehicleFile "\"./vehicles.xml\""
+par Highway.node[5].scenario useRealisticEngine false
+par Highway.node[5].scenario vehicleType "\"\""
+par Highway.node[5].scenario headerLength 0bit
+attr unit bit
+par Highway.node[5].scenario breakRanksTime 10s
+attr unit s
+par Highway.node[5].appl typename "\"org.car2x.plexe.apps.SimplePlatooningApp\""
+par Highway.node[5].appl headerLength 0bit
+attr unit bit
+par Highway.node[5].appl breakRanksSafetyDistance 15m
+attr unit m
+par Highway.node[5].appl minSpeed 100kmph
+attr unit kmph
+par Highway.node[5].appl maxSpeed 120kmph
+attr unit kmph
+par Highway.node[5].prot typename "\"org.car2x.plexe.protocols.SimplePlatooningBeaconing\""
+par Highway.node[5].prot beaconingInterval 0.1seconds
+attr unit seconds
+par Highway.node[5].prot priority 4
+par Highway.node[5].prot packetSize 200
+par Highway.node[5].prot headerLength 0bit
+attr unit bit
+par Highway.node[5].veins11pDriver typename "\"org.car2x.plexe.driver.Veins11pRadioDriver\""
+par Highway.node[5].veins11pDriver headerLength 0bit
+attr unit bit
+par Highway.node[5].nic.phy80211p typename "\"org.car2x.veins.modules.phy.PhyLayer80211p\""
+par Highway.node[5].nic.phy80211p recordStats false
+par Highway.node[5].nic.phy80211p usePropagationDelay true
+par Highway.node[5].nic.phy80211p noiseFloor -95dBm
+attr unit dBm
+par Highway.node[5].nic.phy80211p useNoiseFloor true
+par Highway.node[5].nic.phy80211p antenna "<root>...</root> at content:1"
+par Highway.node[5].nic.phy80211p antennaOffsetX 0m
+attr unit m
+par Highway.node[5].nic.phy80211p antennaOffsetY 0m
+attr unit m
+par Highway.node[5].nic.phy80211p antennaOffsetZ 1.895m
+attr unit m
+par Highway.node[5].nic.phy80211p antennaOffsetYaw 0rad
+attr unit rad
+par Highway.node[5].nic.phy80211p analogueModels "<root>...</root> at /home/bertuzzi/src/plexe/examples/platooning//config.xml:32"
+par Highway.node[5].nic.phy80211p decider "<root>...</root> at /home/bertuzzi/src/plexe/examples/platooning//config.xml:32"
+par Highway.node[5].nic.phy80211p minPowerLevel -94dBm
+attr unit dBm
+par Highway.node[5].nic.phy80211p timeRXToTX 0s
+attr unit s
+par Highway.node[5].nic.phy80211p timeRXToSleep 0s
+attr unit s
+par Highway.node[5].nic.phy80211p timeTXToRX 0s
+attr unit s
+par Highway.node[5].nic.phy80211p timeTXToSleep 0s
+attr unit s
+par Highway.node[5].nic.phy80211p timeSleepToRX 0s
+attr unit s
+par Highway.node[5].nic.phy80211p timeSleepToTX 0s
+attr unit s
+par Highway.node[5].nic.phy80211p initialRadioState 0
+par Highway.node[5].nic.phy80211p radioMinAtt 1
+par Highway.node[5].nic.phy80211p radioMaxAtt 0
+par Highway.node[5].nic.phy80211p nbRadioChannels 1
+par Highway.node[5].nic.phy80211p initialRadioChannel 0
+par Highway.node[5].nic.phy80211p ccaThreshold -65dBm
+attr unit dBm
+par Highway.node[5].nic.phy80211p collectCollisionStatistics false
+par Highway.node[5].nic.phy80211p allowTxDuringRx false
+par Highway.node[5].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
+par Highway.node[5].nic.mac1609_4 notAffectedByHostState false
+par Highway.node[5].nic.mac1609_4 headerLength 0bit
+attr unit bit
+par Highway.node[5].nic.mac1609_4 address "\"auto\""
+par Highway.node[5].nic.mac1609_4 useServiceChannel false
+par Highway.node[5].nic.mac1609_4 serviceChannel 1
+par Highway.node[5].nic.mac1609_4 bitrate 6000000bps
+attr unit bps
+par Highway.node[5].nic.mac1609_4 syncOffset 0.0003s
+attr unit s
+par Highway.node[5].nic.mac1609_4 txPower 100mW
+attr unit mW
+par Highway.node[5].nic.mac1609_4 queueSize 0
+par Highway.node[5].nic.mac1609_4 dot11RTSThreshold 12000bit
+attr unit bit
+par Highway.node[5].nic.mac1609_4 dot11ShortRetryLimit 7
+par Highway.node[5].nic.mac1609_4 dot11LongRetryLimit 4
+par Highway.node[5].nic.mac1609_4 ackLength 112bit
+attr unit bit
+par Highway.node[5].nic.mac1609_4 useAcks true
+par Highway.node[5].nic.mac1609_4 frameErrorRate 0
+par Highway.node[5].nic.mac1609_4 ackErrorRate 0
+par Highway.node[5].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
+par Highway.node[5].nic connectionManagerName "\"connectionManager\""
+par Highway.node[5].mobility typename "\"org.car2x.veins.modules.mobility.traci.TraCIMobility\""
+par Highway.node[5].mobility notAffectedByHostState true
+par Highway.node[5].mobility x 0
+par Highway.node[5].mobility y 0
+par Highway.node[5].mobility z 1.895
+par Highway.node[5].mobility xOrientation 1
+par Highway.node[5].mobility yOrientation 0
+par Highway.node[5].mobility zOrientation 0
+par Highway.node[5].mobility hostPositionOffset 0m
+attr unit m
+par Highway.node[5].mobility setHostSpeed false
+par Highway.node[5].mobility accidentCount 0
+par Highway.node[5].mobility accidentStart 34.087s
+attr unit s
+par Highway.node[5].mobility accidentDuration "uniform(30s, 60s)"
+attr unit s
+par Highway.node[5].mobility accidentInterval "uniform(30s, 60s)"
+attr unit s
+par Highway.node[5] typename "\"org.car2x.plexe.PlatoonCar\""
+par Highway.node[5] scenario_type "\"BreakRanksScenario\""
+par Highway.node[5] helper_type "\"PositionHelper\""
+par Highway.node[5] appl_type "\"SimplePlatooningApp\""
+par Highway.node[5] protocol_type "\"SimplePlatooningBeaconing\""
+par Highway.node[6].helper typename "\"org.car2x.plexe.utilities.PositionHelper\""
+par Highway.node[6].scenario typename "\"org.car2x.plexe.scenarios.BreakRanksScenario\""
+par Highway.node[6].scenario leaderSpeed 110kmph
+attr unit kmph
+par Highway.node[6].scenario accHeadway 0.1s
+attr unit s
+par Highway.node[6].scenario leaderHeadway 1.2s
+attr unit s
+par Highway.node[6].scenario caccXi 1
+par Highway.node[6].scenario caccOmegaN 0.2Hz
+attr unit Hz
+par Highway.node[6].scenario caccC1 0.5
+par Highway.node[6].scenario caccSpacing 2m
+attr unit m
+par Highway.node[6].scenario engineTau 0.5s
+attr unit s
+par Highway.node[6].scenario uMin -1e+06mpsps
+attr unit mpsps
+par Highway.node[6].scenario uMax 1e+06mpsps
+attr unit mpsps
+par Highway.node[6].scenario ploegH 0.5s
+attr unit s
+par Highway.node[6].scenario ploegKp 0.2
+par Highway.node[6].scenario ploegKd 0.7
+par Highway.node[6].scenario flatbedKa 2.4
+par Highway.node[6].scenario flatbedKv 0.6
+par Highway.node[6].scenario flatbedKp 12
+par Highway.node[6].scenario flatbedH 4
+par Highway.node[6].scenario flatbedD 5
+par Highway.node[6].scenario useControllerAcceleration true
+par Highway.node[6].scenario usePrediction true
+par Highway.node[6].scenario vehicleFile "\"./vehicles.xml\""
+par Highway.node[6].scenario useRealisticEngine false
+par Highway.node[6].scenario vehicleType "\"\""
+par Highway.node[6].scenario headerLength 0bit
+attr unit bit
+par Highway.node[6].scenario breakRanksTime 10s
+attr unit s
+par Highway.node[6].appl typename "\"org.car2x.plexe.apps.SimplePlatooningApp\""
+par Highway.node[6].appl headerLength 0bit
+attr unit bit
+par Highway.node[6].appl breakRanksSafetyDistance 15m
+attr unit m
+par Highway.node[6].appl minSpeed 100kmph
+attr unit kmph
+par Highway.node[6].appl maxSpeed 120kmph
+attr unit kmph
+par Highway.node[6].prot typename "\"org.car2x.plexe.protocols.SimplePlatooningBeaconing\""
+par Highway.node[6].prot beaconingInterval 0.1seconds
+attr unit seconds
+par Highway.node[6].prot priority 4
+par Highway.node[6].prot packetSize 200
+par Highway.node[6].prot headerLength 0bit
+attr unit bit
+par Highway.node[6].veins11pDriver typename "\"org.car2x.plexe.driver.Veins11pRadioDriver\""
+par Highway.node[6].veins11pDriver headerLength 0bit
+attr unit bit
+par Highway.node[6].nic.phy80211p typename "\"org.car2x.veins.modules.phy.PhyLayer80211p\""
+par Highway.node[6].nic.phy80211p recordStats false
+par Highway.node[6].nic.phy80211p usePropagationDelay true
+par Highway.node[6].nic.phy80211p noiseFloor -95dBm
+attr unit dBm
+par Highway.node[6].nic.phy80211p useNoiseFloor true
+par Highway.node[6].nic.phy80211p antenna "<root>...</root> at content:1"
+par Highway.node[6].nic.phy80211p antennaOffsetX 0m
+attr unit m
+par Highway.node[6].nic.phy80211p antennaOffsetY 0m
+attr unit m
+par Highway.node[6].nic.phy80211p antennaOffsetZ 1.895m
+attr unit m
+par Highway.node[6].nic.phy80211p antennaOffsetYaw 0rad
+attr unit rad
+par Highway.node[6].nic.phy80211p analogueModels "<root>...</root> at /home/bertuzzi/src/plexe/examples/platooning//config.xml:32"
+par Highway.node[6].nic.phy80211p decider "<root>...</root> at /home/bertuzzi/src/plexe/examples/platooning//config.xml:32"
+par Highway.node[6].nic.phy80211p minPowerLevel -94dBm
+attr unit dBm
+par Highway.node[6].nic.phy80211p timeRXToTX 0s
+attr unit s
+par Highway.node[6].nic.phy80211p timeRXToSleep 0s
+attr unit s
+par Highway.node[6].nic.phy80211p timeTXToRX 0s
+attr unit s
+par Highway.node[6].nic.phy80211p timeTXToSleep 0s
+attr unit s
+par Highway.node[6].nic.phy80211p timeSleepToRX 0s
+attr unit s
+par Highway.node[6].nic.phy80211p timeSleepToTX 0s
+attr unit s
+par Highway.node[6].nic.phy80211p initialRadioState 0
+par Highway.node[6].nic.phy80211p radioMinAtt 1
+par Highway.node[6].nic.phy80211p radioMaxAtt 0
+par Highway.node[6].nic.phy80211p nbRadioChannels 1
+par Highway.node[6].nic.phy80211p initialRadioChannel 0
+par Highway.node[6].nic.phy80211p ccaThreshold -65dBm
+attr unit dBm
+par Highway.node[6].nic.phy80211p collectCollisionStatistics false
+par Highway.node[6].nic.phy80211p allowTxDuringRx false
+par Highway.node[6].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
+par Highway.node[6].nic.mac1609_4 notAffectedByHostState false
+par Highway.node[6].nic.mac1609_4 headerLength 0bit
+attr unit bit
+par Highway.node[6].nic.mac1609_4 address "\"auto\""
+par Highway.node[6].nic.mac1609_4 useServiceChannel false
+par Highway.node[6].nic.mac1609_4 serviceChannel 1
+par Highway.node[6].nic.mac1609_4 bitrate 6000000bps
+attr unit bps
+par Highway.node[6].nic.mac1609_4 syncOffset 0.0003s
+attr unit s
+par Highway.node[6].nic.mac1609_4 txPower 100mW
+attr unit mW
+par Highway.node[6].nic.mac1609_4 queueSize 0
+par Highway.node[6].nic.mac1609_4 dot11RTSThreshold 12000bit
+attr unit bit
+par Highway.node[6].nic.mac1609_4 dot11ShortRetryLimit 7
+par Highway.node[6].nic.mac1609_4 dot11LongRetryLimit 4
+par Highway.node[6].nic.mac1609_4 ackLength 112bit
+attr unit bit
+par Highway.node[6].nic.mac1609_4 useAcks true
+par Highway.node[6].nic.mac1609_4 frameErrorRate 0
+par Highway.node[6].nic.mac1609_4 ackErrorRate 0
+par Highway.node[6].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
+par Highway.node[6].nic connectionManagerName "\"connectionManager\""
+par Highway.node[6].mobility typename "\"org.car2x.veins.modules.mobility.traci.TraCIMobility\""
+par Highway.node[6].mobility notAffectedByHostState true
+par Highway.node[6].mobility x 0
+par Highway.node[6].mobility y 0
+par Highway.node[6].mobility z 1.895
+par Highway.node[6].mobility xOrientation 1
+par Highway.node[6].mobility yOrientation 0
+par Highway.node[6].mobility zOrientation 0
+par Highway.node[6].mobility hostPositionOffset 0m
+attr unit m
+par Highway.node[6].mobility setHostSpeed false
+par Highway.node[6].mobility accidentCount 0
+par Highway.node[6].mobility accidentStart 45.5453s
+attr unit s
+par Highway.node[6].mobility accidentDuration "uniform(30s, 60s)"
+attr unit s
+par Highway.node[6].mobility accidentInterval "uniform(30s, 60s)"
+attr unit s
+par Highway.node[6] typename "\"org.car2x.plexe.PlatoonCar\""
+par Highway.node[6] scenario_type "\"BreakRanksScenario\""
+par Highway.node[6] helper_type "\"PositionHelper\""
+par Highway.node[6] appl_type "\"SimplePlatooningApp\""
+par Highway.node[6] protocol_type "\"SimplePlatooningBeaconing\""
+par Highway.node[7].helper typename "\"org.car2x.plexe.utilities.PositionHelper\""
+par Highway.node[7].scenario typename "\"org.car2x.plexe.scenarios.BreakRanksScenario\""
+par Highway.node[7].scenario leaderSpeed 110kmph
+attr unit kmph
+par Highway.node[7].scenario accHeadway 0.1s
+attr unit s
+par Highway.node[7].scenario leaderHeadway 1.2s
+attr unit s
+par Highway.node[7].scenario caccXi 1
+par Highway.node[7].scenario caccOmegaN 0.2Hz
+attr unit Hz
+par Highway.node[7].scenario caccC1 0.5
+par Highway.node[7].scenario caccSpacing 2m
+attr unit m
+par Highway.node[7].scenario engineTau 0.5s
+attr unit s
+par Highway.node[7].scenario uMin -1e+06mpsps
+attr unit mpsps
+par Highway.node[7].scenario uMax 1e+06mpsps
+attr unit mpsps
+par Highway.node[7].scenario ploegH 0.5s
+attr unit s
+par Highway.node[7].scenario ploegKp 0.2
+par Highway.node[7].scenario ploegKd 0.7
+par Highway.node[7].scenario flatbedKa 2.4
+par Highway.node[7].scenario flatbedKv 0.6
+par Highway.node[7].scenario flatbedKp 12
+par Highway.node[7].scenario flatbedH 4
+par Highway.node[7].scenario flatbedD 5
+par Highway.node[7].scenario useControllerAcceleration true
+par Highway.node[7].scenario usePrediction true
+par Highway.node[7].scenario vehicleFile "\"./vehicles.xml\""
+par Highway.node[7].scenario useRealisticEngine false
+par Highway.node[7].scenario vehicleType "\"\""
+par Highway.node[7].scenario headerLength 0bit
+attr unit bit
+par Highway.node[7].scenario breakRanksTime 10s
+attr unit s
+par Highway.node[7].appl typename "\"org.car2x.plexe.apps.SimplePlatooningApp\""
+par Highway.node[7].appl headerLength 0bit
+attr unit bit
+par Highway.node[7].appl breakRanksSafetyDistance 15m
+attr unit m
+par Highway.node[7].appl minSpeed 100kmph
+attr unit kmph
+par Highway.node[7].appl maxSpeed 120kmph
+attr unit kmph
+par Highway.node[7].prot typename "\"org.car2x.plexe.protocols.SimplePlatooningBeaconing\""
+par Highway.node[7].prot beaconingInterval 0.1seconds
+attr unit seconds
+par Highway.node[7].prot priority 4
+par Highway.node[7].prot packetSize 200
+par Highway.node[7].prot headerLength 0bit
+attr unit bit
+par Highway.node[7].veins11pDriver typename "\"org.car2x.plexe.driver.Veins11pRadioDriver\""
+par Highway.node[7].veins11pDriver headerLength 0bit
+attr unit bit
+par Highway.node[7].nic.phy80211p typename "\"org.car2x.veins.modules.phy.PhyLayer80211p\""
+par Highway.node[7].nic.phy80211p recordStats false
+par Highway.node[7].nic.phy80211p usePropagationDelay true
+par Highway.node[7].nic.phy80211p noiseFloor -95dBm
+attr unit dBm
+par Highway.node[7].nic.phy80211p useNoiseFloor true
+par Highway.node[7].nic.phy80211p antenna "<root>...</root> at content:1"
+par Highway.node[7].nic.phy80211p antennaOffsetX 0m
+attr unit m
+par Highway.node[7].nic.phy80211p antennaOffsetY 0m
+attr unit m
+par Highway.node[7].nic.phy80211p antennaOffsetZ 1.895m
+attr unit m
+par Highway.node[7].nic.phy80211p antennaOffsetYaw 0rad
+attr unit rad
+par Highway.node[7].nic.phy80211p analogueModels "<root>...</root> at /home/bertuzzi/src/plexe/examples/platooning//config.xml:32"
+par Highway.node[7].nic.phy80211p decider "<root>...</root> at /home/bertuzzi/src/plexe/examples/platooning//config.xml:32"
+par Highway.node[7].nic.phy80211p minPowerLevel -94dBm
+attr unit dBm
+par Highway.node[7].nic.phy80211p timeRXToTX 0s
+attr unit s
+par Highway.node[7].nic.phy80211p timeRXToSleep 0s
+attr unit s
+par Highway.node[7].nic.phy80211p timeTXToRX 0s
+attr unit s
+par Highway.node[7].nic.phy80211p timeTXToSleep 0s
+attr unit s
+par Highway.node[7].nic.phy80211p timeSleepToRX 0s
+attr unit s
+par Highway.node[7].nic.phy80211p timeSleepToTX 0s
+attr unit s
+par Highway.node[7].nic.phy80211p initialRadioState 0
+par Highway.node[7].nic.phy80211p radioMinAtt 1
+par Highway.node[7].nic.phy80211p radioMaxAtt 0
+par Highway.node[7].nic.phy80211p nbRadioChannels 1
+par Highway.node[7].nic.phy80211p initialRadioChannel 0
+par Highway.node[7].nic.phy80211p ccaThreshold -65dBm
+attr unit dBm
+par Highway.node[7].nic.phy80211p collectCollisionStatistics false
+par Highway.node[7].nic.phy80211p allowTxDuringRx false
+par Highway.node[7].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
+par Highway.node[7].nic.mac1609_4 notAffectedByHostState false
+par Highway.node[7].nic.mac1609_4 headerLength 0bit
+attr unit bit
+par Highway.node[7].nic.mac1609_4 address "\"auto\""
+par Highway.node[7].nic.mac1609_4 useServiceChannel false
+par Highway.node[7].nic.mac1609_4 serviceChannel 1
+par Highway.node[7].nic.mac1609_4 bitrate 6000000bps
+attr unit bps
+par Highway.node[7].nic.mac1609_4 syncOffset 0.0003s
+attr unit s
+par Highway.node[7].nic.mac1609_4 txPower 100mW
+attr unit mW
+par Highway.node[7].nic.mac1609_4 queueSize 0
+par Highway.node[7].nic.mac1609_4 dot11RTSThreshold 12000bit
+attr unit bit
+par Highway.node[7].nic.mac1609_4 dot11ShortRetryLimit 7
+par Highway.node[7].nic.mac1609_4 dot11LongRetryLimit 4
+par Highway.node[7].nic.mac1609_4 ackLength 112bit
+attr unit bit
+par Highway.node[7].nic.mac1609_4 useAcks true
+par Highway.node[7].nic.mac1609_4 frameErrorRate 0
+par Highway.node[7].nic.mac1609_4 ackErrorRate 0
+par Highway.node[7].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
+par Highway.node[7].nic connectionManagerName "\"connectionManager\""
+par Highway.node[7].mobility typename "\"org.car2x.veins.modules.mobility.traci.TraCIMobility\""
+par Highway.node[7].mobility notAffectedByHostState true
+par Highway.node[7].mobility x 0
+par Highway.node[7].mobility y 0
+par Highway.node[7].mobility z 1.895
+par Highway.node[7].mobility xOrientation 1
+par Highway.node[7].mobility yOrientation 0
+par Highway.node[7].mobility zOrientation 0
+par Highway.node[7].mobility hostPositionOffset 0m
+attr unit m
+par Highway.node[7].mobility setHostSpeed false
+par Highway.node[7].mobility accidentCount 0
+par Highway.node[7].mobility accidentStart 58.0155s
+attr unit s
+par Highway.node[7].mobility accidentDuration "uniform(30s, 60s)"
+attr unit s
+par Highway.node[7].mobility accidentInterval "uniform(30s, 60s)"
+attr unit s
+par Highway.node[7] typename "\"org.car2x.plexe.PlatoonCar\""
+par Highway.node[7] scenario_type "\"BreakRanksScenario\""
+par Highway.node[7] helper_type "\"PositionHelper\""
+par Highway.node[7] appl_type "\"SimplePlatooningApp\""
+par Highway.node[7] protocol_type "\"SimplePlatooningBeaconing\""
+par Highway typename "\"Highway\""
+par Highway playgroundSizeX 65000m
+attr unit m
+par Highway playgroundSizeY 25000m
+attr unit m
+par Highway playgroundSizeZ 50m
+attr unit m
+par Highway traffic_type "\"PlatoonsTrafficManager\""
+par Highway useLaunchd false
+par Highway manager_type "\"PlexeScenarioManagerForker\""
+
