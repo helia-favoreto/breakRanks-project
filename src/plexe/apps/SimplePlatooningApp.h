@@ -21,18 +21,65 @@
 #ifndef SIMPLEPLATOONINGAPP_H_
 #define SIMPLEPLATOONINGAPP_H_
 
+#include "plexe/scenarios/BaseScenario.h"
 #include "plexe/apps/BaseApp.h"
+#include "plexe/messages/ReadyForGoodbye_m.h"
+#include "plexe/messages/BreakRanks_m.h"
+#include "plexe/messages/Goodbye_m.h"
+
 
 namespace plexe {
 
-class SimplePlatooningApp : public BaseApp {
+class SimplePlatooningApp: public BaseApp {
 
 public:
-    SimplePlatooningApp()
-    {
+    SimplePlatooningApp() {
     }
+
+    virtual void initialize(int stage) override;
+    void broadcastBreakRanksMessage();
+    void sendReadyForGoodbyeMessage();
+    void sendGoodbyeMessage();
+    virtual void sendUnicast(cPacket *msg, int destination);
+    virtual void sendBroadcast(cPacket *msg);
+    virtual void handleSelfMsg(cMessage *msg) override;
+
+    double speedAfterBreaking;
+    double minSpeed;
+    double maxSpeed;
+
+    virtual ~SimplePlatooningApp();
+
+protected:
+    double breakRanksSafetyDistance;
+    double sd;
+    BaseScenario *scenario;
+    virtual void handleLowerMsg(cMessage *msg) override;
+    void handleBreakRanks(const BreakRanks *msg);
+    void handleReadyForGoodbye(const ReadyForGoodbye *msg);
+    void handleGoodbye(const Goodbye *msg);
+
+private:
+
+    ReadyForGoodbye* createReadyForGoodbyeMessage();
+    BreakRanks* createBreakRanksMessage();
+    Goodbye* createGoodbyeMessage();
+    cMessage *checkDistance;
+    enum vehicleState{ //define the states for leader and follower
+        IDLE, // leader and follower state
+        WAITREADYFORGOODBYE, //leader state
+        OPENGAP, //follower state
+        READYFORLEAVING, //follower state
+        BREAKPLATOON, //leader and follower state
+
+    };
+    vehicleState leaderState = IDLE;
+    vehicleState followerState = IDLE;
+
+    int rfgCounter; //counter ReadyForGoodbye messages
+
 };
 
 } // namespace plexe
 
-#endif /* SIMPLEPLATOONINGAPP_H_ */
+#endif // SIMPLEPLATOONINGAPP_H_ //

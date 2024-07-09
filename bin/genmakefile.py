@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright (C) 2016-2023 Bastian Bloessl <bloessl@ccs-labs.org>
 # Copyright (C) 2016-2023 Michele Segata <segata@ccs-labs.org>

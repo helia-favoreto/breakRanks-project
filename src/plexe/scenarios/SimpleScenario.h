@@ -26,22 +26,21 @@
 
 namespace plexe {
 
-class SimpleScenario : public BaseScenario {
+class SimpleScenario: public BaseScenario {
 public:
-    virtual void initialize(int stage);
+    SimpleScenario() :
+            leaderSpeed(0), appl(nullptr) {
+    }
+    ;
+    virtual void initialize(int stage) override;
 
 protected:
     // leader average speed
     double leaderSpeed;
     // application layer, used to stop the simulation
-    BaseApp* appl;
+    BaseApp *appl;
 
-public:
-    SimpleScenario()
-        : leaderSpeed(0)
-        , appl(nullptr){};
 };
-
 } // namespace plexe
 
 #endif

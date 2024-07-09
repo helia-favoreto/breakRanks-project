@@ -29,7 +29,8 @@ namespace plexe {
 class BrakingScenario : public BaseScenario {
 
 public:
-    virtual void initialize(int stage);
+    virtual void initialize(int stage) override;
+    int numInitStages() const override { return 4; }
 
 protected:
     // leader average speed
@@ -58,7 +59,7 @@ public:
     virtual ~BrakingScenario();
 
 protected:
-    virtual void handleSelfMsg(cMessage* msg);
+    virtual void handleSelfMsg(cMessage* msg)override;
 };
 
 } // namespace plexe

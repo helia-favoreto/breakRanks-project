@@ -28,6 +28,10 @@ simple SimplePlatooningApp like BaseApp
         int headerLength @unit("bit") = default(0 bit);
         @display("i=block/app2");
         @class(plexe::SimplePlatooningApp);
+        
+        double breakRanksSafetyDistance @unit("m") = default(15 m);
+        double minSpeed @unit("kmph") = default(90 kmph);
+        double maxSpeed @unit("kmph") = default(130 kmph);
     gates:
         input lowerLayerIn;
         output lowerLayerOut;

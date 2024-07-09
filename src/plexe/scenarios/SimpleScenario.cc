@@ -26,28 +26,13 @@ namespace plexe {
 
 Define_Module(SimpleScenario);
 
-void SimpleScenario::initialize(int stage)
-{
+void SimpleScenario::initialize(int stage) {
 
     BaseScenario::initialize(stage);
 
-    if (stage == 0)
+    if (stage == 0){
         // get pointer to application
         appl = FindModule<BaseApp*>::findSubModule(getParentModule());
-
-    if (stage == 2) {
-        // average speed
-        leaderSpeed = par("leaderSpeed").doubleValue() / 3.6;
-
-        if (positionHelper->isLeader()) {
-            // set base cruising speed
-            plexeTraciVehicle->setCruiseControlDesiredSpeed(leaderSpeed);
-        }
-        else {
-            // let the follower set a higher desired speed to stay connected
-            // to the leader when it is accelerating
-            plexeTraciVehicle->setCruiseControlDesiredSpeed(leaderSpeed + 10);
-        }
     }
 }
 
