@@ -2,16 +2,20 @@
 
 import os
 import matplotlib.pyplot as plt
-from matplotlib.table import Table
+import numpy as np
 
 # Root directory of the data
 data_directory = '/home/bertuzzi/src/plexe/examples/platooning/results'
 
-# Function to process the data and generate the collision table as an image
-def process_data_and_generate_table_image(data_directory):
-    # List to store results from each directory
-    results = []
-    #
+# Function to process the data and generate the collision matrix table as an image
+def process_data_and_generate_matrix_table_image(data_directory, speeds, safety_distances):
+    # Initialize a matrix to store collision counts
+    collision_matrix = np.zeros((len(speeds), len(safety_distances)), dtype=int)
+
+    # Create a mapping from speed and safety distance to matrix indices
+    speed_to_index = {speed: idx for idx, speed in enumerate(speeds)}
+    distance_to_index = {distance: idx for idx, distance in enumerate(safety_distances)}
+
     # Iterate over subdirectories within the root directory
     for subdir in os.listdir(data_directory):
         subdir_path = os.path.join(data_directory, subdir)
@@ -22,50 +26,52 @@ def process_data_and_generate_table_image(data_directory):
 
                 # Read .vec files to count collisions
                 for i in range(10):  # Reads all result_*.vec files
-                    collisions = read_collisions_from_vec(os.path.join(subdir_path, f'result_{i}.vec'))
-                    total_collisions += collisions
+                    file_path = os.path.join(subdir_path, f'result_{i}.vec')
+                    if os.path.exists(file_path):
+                        collisions = read_collisions_from_vec(file_path)
+                        total_collisions += collisions
 
-                # Extract speed and safetyDistance parameters from directory name
+                # Extract parameters from directory name
                 parts = subdir.split('_')
-                speed = int(parts[-2])  # Penultimate element is speed
-                safety_distance = int(parts[-1])  # Last element is safetyDistance
+                if len(parts) < 6:
+                    print(f"Skipping directory {subdir_path} due to incorrect format")
+                    continue
 
-                # Add results from this directory to the list
-                results.append({
-                    'LeaderSpeed': speed,
-                    'SafetyDistance': safety_distance,
-                    'TotalCollisions': total_collisions
-                })
+                speed = int(parts[-3])  # Third last element is speed
+                safety_distance = int(parts[-2])  # Second last element is safety distance
+
+                # Update the collision matrix
+                if speed in speed_to_index and safety_distance in distance_to_index:
+                    row_idx = speed_to_index[speed]
+                    col_idx = distance_to_index[safety_distance]
+                    collision_matrix[row_idx, col_idx] += total_collisions
 
             except Exception as e:
                 print(f"Error processing directory {subdir_path}: {str(e)}")
 
-    # Sort results by safety distance in ascending order
-    results_sorted = sorted(results, key=lambda x: x['SafetyDistance'])
-
     # Create a matplotlib Figure object
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(10, 10))  # Adjust the figure size as needed
 
-    # Table configuration
-    col_labels = ['leaderSpeed (km/h)', 'safetyDistance (m)', 'Total Collisions']
-    table_data = [[f"{row['LeaderSpeed']}", f"{row['SafetyDistance']}", row['TotalCollisions']] for row in results_sorted]
+    # Create the table
+    ax.axis('tight')
+    ax.axis('off')
+    col_labels = [f"{dist} m" for dist in safety_distances]
+    row_labels = [f"{speed} km/h" for speed in speeds]
+    table = ax.table(cellText=collision_matrix, rowLabels=row_labels, colLabels=col_labels, loc='center', cellLoc='center', colColours=['#f2f2f2'] * len(safety_distances))
 
-    # Create the table and configure cell styles
-    table = ax.table(cellText=table_data, colLabels=col_labels, loc='center', cellLoc='center', colColours=['#f2f2f2']*3)
     table.auto_set_font_size(False)
     table.set_fontsize(12)
-    table.scale(1.2, 1.2)  # Adjust table size
+    table.scale(1.4, 1.4)  # Adjust table size (increased scaling)
 
-    # Hide axes
-    ax.axis('off')
+    # Adjust column widths
+    for key, cell in table.get_celld().items():
+        cell.set_width(0.20)  # Adjust the width of each cell (this is a fraction of the table width)
 
-    # Adjust figure layout
-    fig.tight_layout()
 
     # Save the table image
-    output_file = 'collision_detection_table.png'
+    output_file = 'collision_matrix_table.png'
     plt.savefig(os.path.join(data_directory, output_file))
-    print(f"Collision detection table generated at '{output_file}'.")
+    print(f"Collision matrix table generated at '{output_file}'.")
 
 # Function to read the number of collisions from a .vec file
 def read_collisions_from_vec(file_path):
@@ -79,6 +85,9 @@ def read_collisions_from_vec(file_path):
                     continue  # Ignore lines that cannot be converted to int
     return collisions
 
-# Call the main function to process the data and generate the table as an image
-process_data_and_generate_table_image(data_directory)
+# Define the speeds and safety distances to include in the matrix
+speeds = [110, 130, 150]
+safety_distances = [2, 3, 5, 10]
 
+# Call the main function to process the data and generate the matrix table as an image
+process_data_and_generate_matrix_table_image(data_directory, speeds, safety_distances)
