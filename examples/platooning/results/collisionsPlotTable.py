@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from matplotlib.table import Table
 
 # Root directory of the data
-data_directory = '/home/bertuzzi/src/plexe/examples/platooning/results_breakRanks'
+data_directory = '/home/bertuzzi/src/plexe/examples/platooning/results'
 
 # Function to process the data and generate the collision table as an image
 def process_data_and_generate_table_image(data_directory):
