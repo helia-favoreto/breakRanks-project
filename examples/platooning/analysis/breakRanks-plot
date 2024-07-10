@@ -1,31 +1,31 @@
-# Carregar pacotes necessários
+# Load necessary packages
 library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-# Definir o diretório onde estão os arquivos
+# Define the directory where the files are located
 dir_path <- "/home/bertuzzi/src/plexe/examples/platooning/results"
 
-# Listar os arquivos BreakRanks_1_0.1_*_* disponíveis no diretório
+# List the available BreakRanks_1_0.1_*_* files in the directory
 file_list <- list.files(path = dir_path, pattern = "BreakRanks_1_0.1_.*\\.Rdata", full.names = TRUE)
 
-# Verificar se existem arquivos .Rdata no diretório
+# Check if there are any .Rdata files in the directory
 if (length(file_list) == 0) {
-  stop("Nenhum arquivo .Rdata encontrado no diretório.")
+  stop("No .Rdata files found in the directory.")
 }
 
-# Loop para processar cada arquivo .Rdata
+# Loop to process each .Rdata file
 for (file in file_list) {
-  # Carregar dados do arquivo atual
+  # Load data from the current file
   load(file)
 
-  # Verificar a estrutura dos dados carregados
+  # Check the structure of the loaded data
   print(str(allData))
 
-  # Exemplo simples de gráfico para verificar funcionamento
+  # Simple example of a plot to check functionality
   p <- ggplot(allData, aes(x = time, y = distance)) +
     geom_line()
 
-  # Salvar gráfico
+  # Save the plot
   ggsave(paste0(file, '_distance.pdf'), p, width = 16, height = 9)
 }

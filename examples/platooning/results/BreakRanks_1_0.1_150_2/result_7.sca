@@ -1,16 +1,16 @@
 version 3
-run BreakRanksNoGui-27-20240708-22:28:31-165749
+run BreakRanksNoGui-27-20240710-06:10:05-237223
 attr configname BreakRanksNoGui
-attr datetime 20240708-22:28:31
-attr datetimef 20240708-222831
+attr datetime 20240710-06:10:05
+attr datetimef 20240710-061005
 attr experiment BreakRanksNoGui
 attr inifile omnetpp.ini
-attr iterationvars "$nCars=8, $platoonSize=8, $nLanes=1, $ploegH=0.5, $controller=1, $headway=0.1, $leaderHeadway=1.2, $leaderSpeed=150, $breakRanksSafetyDistance=2, $minSpeed=140, $maxSpeed=160, $beaconInterval=0.1, $priority=4, $packetSize=200, $sController=\"CACC\", $0=2, $1=0"
-attr iterationvarsd nCars=8/platoonSize=8/nLanes=1/ploegH=0.5/controller=1/headway=0.1/leaderHeadway=1.2/leaderSpeed=150/breakRanksSafetyDistance=2/minSpeed=140/maxSpeed=160/beaconInterval=0.1/priority=4/packetSize=200/sController=CACC/2/0
-attr iterationvarsf nCars=8,platoonSize=8,nLanes=1,ploegH=0.5,controller=1,headway=0.1,leaderHeadway=1.2,leaderSpeed=150,breakRanksSafetyDistance=2,minSpeed=140,maxSpeed=160,beaconInterval=0.1,priority=4,packetSize=200,sController=CACC,2,0-
-attr measurement "$nCars=8, $platoonSize=8, $nLanes=1, $ploegH=0.5, $controller=1, $headway=0.1, $leaderHeadway=1.2, $leaderSpeed=150, $breakRanksSafetyDistance=2, $minSpeed=140, $maxSpeed=160, $beaconInterval=0.1, $priority=4, $packetSize=200, $sController=\"CACC\", $0=2, $1=0"
+attr iterationvars "$nCars=8, $platoonSize=8, $nLanes=1, $ploegH=0.5, $controller=1, $headway=0.1, $leaderHeadway=1.2, $leaderSpeed=150, $breakRanksSafetyDistance=2, $minSpeed=140, $maxSpeed=160, $beaconInterval=0.1, $priority=4, $packetSize=200, $sController=\"CACC\", $0=0, $1=0"
+attr iterationvarsd nCars=8/platoonSize=8/nLanes=1/ploegH=0.5/controller=1/headway=0.1/leaderHeadway=1.2/leaderSpeed=150/breakRanksSafetyDistance=2/minSpeed=140/maxSpeed=160/beaconInterval=0.1/priority=4/packetSize=200/sController=CACC/0/0
+attr iterationvarsf nCars=8,platoonSize=8,nLanes=1,ploegH=0.5,controller=1,headway=0.1,leaderHeadway=1.2,leaderSpeed=150,breakRanksSafetyDistance=2,minSpeed=140,maxSpeed=160,beaconInterval=0.1,priority=4,packetSize=200,sController=CACC,0,0-
+attr measurement "$nCars=8, $platoonSize=8, $nLanes=1, $ploegH=0.5, $controller=1, $headway=0.1, $leaderHeadway=1.2, $leaderSpeed=150, $breakRanksSafetyDistance=2, $minSpeed=140, $maxSpeed=160, $beaconInterval=0.1, $priority=4, $packetSize=200, $sController=\"CACC\", $0=0, $1=0"
 attr network Highway
-attr processid 165749
+attr processid 237223
 attr repetition 7
 attr replication #7
 attr resultdir results
@@ -95,8 +95,8 @@ config **.numberOfCars 8
 config **.numberOfCarsPerPlatoon 8
 config **.numberOfLanes 1
 config *.node[*].helper_type "\"PositionHelper\""
-config *.node[*].scenario.caccC1 0.5
-config *.node[*].scenario.caccXi 1
+config *.node[*].scenario.caccC1 0
+config *.node[*].scenario.caccXi 0
 config *.node[*].scenario.caccOmegaN "0.2 Hz"
 config *.node[*].scenario.caccSpacing "2 m"
 config *.node[*].scenario.engineTau "0.5 s"
@@ -131,13 +131,11 @@ config **.traffic.platoonSize 8
 config **.traffic.nLanes 1
 config **.traffic.platooningVType "\"vtypeauto\""
 config **.traffic.controller "\"CACC\""
-config **.traffic.platoonInsertDistance 2m
+config **.traffic.platoonInsertDistance 0m
 config **.traffic.platoonInsertHeadway 0s
 config **.traffic.platoonLeaderHeadway 1.2s
 config **.scalar-recording false
 config **.vector-recording false
-config output-vector-file results/BreakRanksNoGui_1_0.1_150_2/result_7.vec
-config output-scalar-file results/BreakRanksNoGui_1_0.1_150_2/result_7.sca
 
 par Highway.annotations typename "\"org.car2x.veins.modules.world.annotations.AnnotationManager\""
 par Highway.annotations draw false
@@ -195,7 +193,7 @@ par Highway.traffic nCars 8
 par Highway.traffic platoonSize 8
 par Highway.traffic nLanes 1
 par Highway.traffic platooningVType "\"vtypeauto\""
-par Highway.traffic platoonInsertDistance 2m
+par Highway.traffic platoonInsertDistance 0m
 attr unit m
 par Highway.traffic platoonInsertHeadway 0s
 attr unit s
@@ -211,10 +209,10 @@ par Highway.node[0].scenario accHeadway 0.1s
 attr unit s
 par Highway.node[0].scenario leaderHeadway 1.2s
 attr unit s
-par Highway.node[0].scenario caccXi 1
+par Highway.node[0].scenario caccXi 0
 par Highway.node[0].scenario caccOmegaN 0.2Hz
 attr unit Hz
-par Highway.node[0].scenario caccC1 0.5
+par Highway.node[0].scenario caccC1 0
 par Highway.node[0].scenario caccSpacing 2m
 attr unit m
 par Highway.node[0].scenario engineTau 0.5s
@@ -356,10 +354,10 @@ par Highway.node[1].scenario accHeadway 0.1s
 attr unit s
 par Highway.node[1].scenario leaderHeadway 1.2s
 attr unit s
-par Highway.node[1].scenario caccXi 1
+par Highway.node[1].scenario caccXi 0
 par Highway.node[1].scenario caccOmegaN 0.2Hz
 attr unit Hz
-par Highway.node[1].scenario caccC1 0.5
+par Highway.node[1].scenario caccC1 0
 par Highway.node[1].scenario caccSpacing 2m
 attr unit m
 par Highway.node[1].scenario engineTau 0.5s
@@ -501,10 +499,10 @@ par Highway.node[2].scenario accHeadway 0.1s
 attr unit s
 par Highway.node[2].scenario leaderHeadway 1.2s
 attr unit s
-par Highway.node[2].scenario caccXi 1
+par Highway.node[2].scenario caccXi 0
 par Highway.node[2].scenario caccOmegaN 0.2Hz
 attr unit Hz
-par Highway.node[2].scenario caccC1 0.5
+par Highway.node[2].scenario caccC1 0
 par Highway.node[2].scenario caccSpacing 2m
 attr unit m
 par Highway.node[2].scenario engineTau 0.5s
@@ -646,10 +644,10 @@ par Highway.node[3].scenario accHeadway 0.1s
 attr unit s
 par Highway.node[3].scenario leaderHeadway 1.2s
 attr unit s
-par Highway.node[3].scenario caccXi 1
+par Highway.node[3].scenario caccXi 0
 par Highway.node[3].scenario caccOmegaN 0.2Hz
 attr unit Hz
-par Highway.node[3].scenario caccC1 0.5
+par Highway.node[3].scenario caccC1 0
 par Highway.node[3].scenario caccSpacing 2m
 attr unit m
 par Highway.node[3].scenario engineTau 0.5s
@@ -791,10 +789,10 @@ par Highway.node[4].scenario accHeadway 0.1s
 attr unit s
 par Highway.node[4].scenario leaderHeadway 1.2s
 attr unit s
-par Highway.node[4].scenario caccXi 1
+par Highway.node[4].scenario caccXi 0
 par Highway.node[4].scenario caccOmegaN 0.2Hz
 attr unit Hz
-par Highway.node[4].scenario caccC1 0.5
+par Highway.node[4].scenario caccC1 0
 par Highway.node[4].scenario caccSpacing 2m
 attr unit m
 par Highway.node[4].scenario engineTau 0.5s
@@ -936,10 +934,10 @@ par Highway.node[5].scenario accHeadway 0.1s
 attr unit s
 par Highway.node[5].scenario leaderHeadway 1.2s
 attr unit s
-par Highway.node[5].scenario caccXi 1
+par Highway.node[5].scenario caccXi 0
 par Highway.node[5].scenario caccOmegaN 0.2Hz
 attr unit Hz
-par Highway.node[5].scenario caccC1 0.5
+par Highway.node[5].scenario caccC1 0
 par Highway.node[5].scenario caccSpacing 2m
 attr unit m
 par Highway.node[5].scenario engineTau 0.5s
@@ -1081,10 +1079,10 @@ par Highway.node[6].scenario accHeadway 0.1s
 attr unit s
 par Highway.node[6].scenario leaderHeadway 1.2s
 attr unit s
-par Highway.node[6].scenario caccXi 1
+par Highway.node[6].scenario caccXi 0
 par Highway.node[6].scenario caccOmegaN 0.2Hz
 attr unit Hz
-par Highway.node[6].scenario caccC1 0.5
+par Highway.node[6].scenario caccC1 0
 par Highway.node[6].scenario caccSpacing 2m
 attr unit m
 par Highway.node[6].scenario engineTau 0.5s
@@ -1226,10 +1224,10 @@ par Highway.node[7].scenario accHeadway 0.1s
 attr unit s
 par Highway.node[7].scenario leaderHeadway 1.2s
 attr unit s
-par Highway.node[7].scenario caccXi 1
+par Highway.node[7].scenario caccXi 0
 par Highway.node[7].scenario caccOmegaN 0.2Hz
 attr unit Hz
-par Highway.node[7].scenario caccC1 0.5
+par Highway.node[7].scenario caccC1 0
 par Highway.node[7].scenario caccSpacing 2m
 attr unit m
 par Highway.node[7].scenario engineTau 0.5s

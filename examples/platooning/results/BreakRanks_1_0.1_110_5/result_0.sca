@@ -1,20 +1,20 @@
 version 3
-run BreakRanks-2-20240709-17:54:22-216379
-attr configname BreakRanks
-attr datetime 20240709-17:54:22
-attr datetimef 20240709-175422
-attr experiment BreakRanks
+run BreakRanksNoGui-20-20240710-05:39:13-232717
+attr configname BreakRanksNoGui
+attr datetime 20240710-05:39:13
+attr datetimef 20240710-053913
+attr experiment BreakRanksNoGui
 attr inifile omnetpp.ini
 attr iterationvars "$nCars=8, $platoonSize=8, $nLanes=1, $ploegH=0.5, $controller=1, $headway=0.1, $leaderHeadway=1.2, $leaderSpeed=110, $breakRanksSafetyDistance=5, $minSpeed=100, $maxSpeed=120, $beaconInterval=0.1, $priority=4, $packetSize=200, $sController=\"CACC\", $0=2, $1=0"
 attr iterationvarsd nCars=8/platoonSize=8/nLanes=1/ploegH=0.5/controller=1/headway=0.1/leaderHeadway=1.2/leaderSpeed=110/breakRanksSafetyDistance=5/minSpeed=100/maxSpeed=120/beaconInterval=0.1/priority=4/packetSize=200/sController=CACC/2/0
 attr iterationvarsf nCars=8,platoonSize=8,nLanes=1,ploegH=0.5,controller=1,headway=0.1,leaderHeadway=1.2,leaderSpeed=110,breakRanksSafetyDistance=5,minSpeed=100,maxSpeed=120,beaconInterval=0.1,priority=4,packetSize=200,sController=CACC,2,0-
 attr measurement "$nCars=8, $platoonSize=8, $nLanes=1, $ploegH=0.5, $controller=1, $headway=0.1, $leaderHeadway=1.2, $leaderSpeed=110, $breakRanksSafetyDistance=5, $minSpeed=100, $maxSpeed=120, $beaconInterval=0.1, $priority=4, $packetSize=200, $sController=\"CACC\", $0=2, $1=0"
 attr network Highway
-attr processid 216379
+attr processid 232717
 attr repetition 0
 attr replication #0
 attr resultdir results
-attr runnumber 2
+attr runnumber 20
 attr seedset 0
 itervar beaconInterval 0.1
 itervar breakRanksSafetyDistance 5
@@ -31,7 +31,13 @@ itervar platoonSize 8
 itervar ploegH 0.5
 itervar priority 4
 itervar sController "\"CACC\""
-config image-path ../../images:../../../veins/images
+config image-path ../../../veins/images
+config repeat 10
+config extends BreakRanks
+config *.manager.command "\"sumo\""
+config *.manager.ignoreGuiCommands true
+config output-vector-file results/BreakRanks_1_0.1_110_5/result_0.vec
+config output-scalar-file results/BreakRanks_1_0.1_110_5/result_0.sca
 config extends Platooning
 config *.node[*].scenario_type "\"BreakRanksScenario\""
 config *.manager.command "\"sumo-gui\""
@@ -130,8 +136,6 @@ config **.traffic.platoonInsertHeadway 0s
 config **.traffic.platoonLeaderHeadway 1.2s
 config **.scalar-recording false
 config **.vector-recording false
-config output-vector-file results/BreakRanks_1_0.1_110_5/result_0.vec
-config output-scalar-file results/BreakRanks_1_0.1_110_5/result_0.sca
 
 par Highway.annotations typename "\"org.car2x.veins.modules.world.annotations.AnnotationManager\""
 par Highway.annotations draw false
@@ -172,9 +176,9 @@ par Highway.manager margin 25
 par Highway.manager roiRoads "\"\""
 par Highway.manager roiRects "\"\""
 par Highway.manager penetrationRate 1
-par Highway.manager ignoreGuiCommands false
+par Highway.manager ignoreGuiCommands true
 par Highway.manager commandLine "\"$command --remote-port $port --seed $seed --configuration-file $configFile\""
-par Highway.manager command "\"sumo-gui\""
+par Highway.manager command "\"sumo\""
 par Highway.manager configFile "\"./sumocfg/freeway.sumo.cfg\""
 par Highway.manager order -1
 par Highway.manager ignoreUnknownSubscriptionResults false
