@@ -74,7 +74,7 @@ def read_collisions_from_vec(file_path):
 
 # Define the speeds and safety distances to include in the matrix
 speeds = [110, 130, 150]
-safety_distances = [2, 3, 5, 15, 20]
+safety_distances = [2, 3, 5, 10, 15, 20]
 
 # Call the main function to process the data and generate the LaTeX table
 process_data_and_generate_latex_table(data_directory, speeds, safety_distances)
