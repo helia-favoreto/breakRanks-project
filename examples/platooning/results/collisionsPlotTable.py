@@ -1,14 +1,14 @@
 #!/bin/bash python3
 
 import os
-import matplotlib.pyplot as plt
 import numpy as np
+from tabulate import tabulate
 
 # Root directory of the data
 data_directory = '/home/bertuzzi/src/plexe/examples/platooning/results'
 
-# Function to process the data and generate the collision matrix table as an image
-def process_data_and_generate_matrix_table_image(data_directory, speeds, safety_distances):
+# Function to process the data and generate the collision matrix table in LaTeX format
+def process_data_and_generate_latex_table(data_directory, speeds, safety_distances):
     # Initialize a matrix to store collision counts
     collision_matrix = np.zeros((len(speeds), len(safety_distances)), dtype=int)
 
@@ -49,32 +49,15 @@ def process_data_and_generate_matrix_table_image(data_directory, speeds, safety_
             except Exception as e:
                 print(f"Error processing directory {subdir_path}: {str(e)}")
 
-    # Create a matplotlib Figure object
-    fig, ax = plt.subplots(figsize=(12, 8))  # Increase the figure width
+    # Generate LaTeX table using tabulate
+    headers = [""] + [f"{dist}m" for dist in safety_distances]
+    table_data = [[f"{speed}km/h"] + list(map(str, collision_matrix[i])) for i, speed in enumerate(speeds)]
+    latex_table = tabulate(table_data, headers, tablefmt="latex")
 
-    # Create the table
-    ax.axis('tight')
-    ax.axis('off')
-    col_labels = [f"{dist} m" for dist in safety_distances]
-    row_labels = [f"{speed} km/h" for speed in speeds]
-    table = ax.table(cellText=collision_matrix, rowLabels=row_labels, colLabels=col_labels, loc='center', cellLoc='center', colColours=['#f2f2f2'] * len(safety_distances))
-
-    table.auto_set_font_size(False)
-    table.set_fontsize(10)
-    table.scale(1.2, 1.2)  # Increase table scaling
-
-    # Adjust column widths
-    col_width = 1.2 / (len(safety_distances) + 1)  # Include an extra column for the row labels
-
-    for (i, j), cell in table.get_celld().items():
-        if j == -1:  # This is the row label (speed column)
-            cell.set_width(0.1)  # Adjust width of the speed column
-        else:
-            cell.set_width(col_width)  # Adjust width of other columns
-
-    # Save the table image
-    output_file = 'collision_matrix_table.png'
-    plt.savefig(os.path.join(data_directory, output_file), bbox_inches='tight', pad_inches=0.1)
+    # Save the LaTeX table to a file
+    output_file = 'collision_matrix_table.tex'
+    with open(os.path.join(data_directory, output_file), 'w') as f:
+        f.write(latex_table)
     print(f"Collision matrix table generated at '{output_file}'.")
 
 # Function to read the number of collisions from a .vec file
@@ -91,7 +74,7 @@ def read_collisions_from_vec(file_path):
 
 # Define the speeds and safety distances to include in the matrix
 speeds = [110, 130, 150]
-safety_distances = [2, 3, 5, 10, 15, 20]
+safety_distances = [2, 3, 5, 15, 20]
 
-# Call the main function to process the data and generate the matrix table as an image
-process_data_and_generate_matrix_table_image(data_directory, speeds, safety_distances)
+# Call the main function to process the data and generate the LaTeX table
+process_data_and_generate_latex_table(data_directory, speeds, safety_distances)
