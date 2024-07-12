@@ -1,0 +1,485 @@
+file 3718003 1720621769                                         
+version 3
+run BreakRanksNoGui-1540-20240710-16:29:16-265525
+attr configname BreakRanksNoGui
+attr datetime 20240710-16:29:16
+attr datetimef 20240710-162916
+attr experiment BreakRanksNoGui
+attr inifile omnetpp.ini
+attr iterationvars "$nCars=12, $platoonSize=6, $nLanes=1, $ploegH=0.5, $controller=1, $headway=0.1, $leaderHeadway=1.2, $leaderSpeed=110, $breakRanksSafetyDistance=5, $minSpeed=100, $maxSpeed=120, $beaconInterval=0.1, $priority=4, $packetSize=200, $sController=\"CACC\", $0=2, $1=0"
+attr iterationvarsd nCars=12/platoonSize=6/nLanes=1/ploegH=0.5/controller=1/headway=0.1/leaderHeadway=1.2/leaderSpeed=110/breakRanksSafetyDistance=5/minSpeed=100/maxSpeed=120/beaconInterval=0.1/priority=4/packetSize=200/sController=CACC/2/0
+attr iterationvarsf nCars=12,platoonSize=6,nLanes=1,ploegH=0.5,controller=1,headway=0.1,leaderHeadway=1.2,leaderSpeed=110,breakRanksSafetyDistance=5,minSpeed=100,maxSpeed=120,beaconInterval=0.1,priority=4,packetSize=200,sController=CACC,2,0-
+attr measurement "$nCars=12, $platoonSize=6, $nLanes=1, $ploegH=0.5, $controller=1, $headway=0.1, $leaderHeadway=1.2, $leaderSpeed=110, $breakRanksSafetyDistance=5, $minSpeed=100, $maxSpeed=120, $beaconInterval=0.1, $priority=4, $packetSize=200, $sController=\"CACC\", $0=2, $1=0"
+attr network Highway
+attr processid 265525
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 1540
+attr seedset 0
+itervar beaconInterval 0.1
+itervar breakRanksSafetyDistance 5
+itervar controller 1
+itervar headway 0.1
+itervar leaderHeadway 1.2
+itervar leaderSpeed 110
+itervar maxSpeed 120
+itervar minSpeed 100
+itervar nCars 12
+itervar nLanes 1
+itervar packetSize 200
+itervar platoonSize 6
+itervar ploegH 0.5
+itervar priority 4
+itervar sController "\"CACC\""
+config image-path ../../../veins/images
+config repeat 10
+config extends BreakRanks
+config *.manager.command "\"sumo\""
+config *.manager.ignoreGuiCommands true
+config output-vector-file "results/BreakRanks_1_0.1_110_5_6 /result_0.vec"
+config output-scalar-file "results/BreakRanks_1_0.1_110_5_6 /result_0.sca"
+config extends Platooning
+config *.node[*].scenario_type "\"BreakRanksScenario\""
+config *.manager.command "\"sumo-gui\""
+config *.node[*].scenario_type "\"SimpleScenario\""
+config cmdenv-express-mode true
+config cmdenv-autoflush true
+config cmdenv-status-frequency 15s
+config num-rngs 6
+config network Highway
+config debug-on-errors true
+config print-undisposed true
+config *.playgroundSizeX 65000m
+config *.playgroundSizeY 25000m
+config *.playgroundSizeZ 50m
+config sim-time-limit "100 s"
+config *.annotations.draw false
+config *.obstacles.debug false
+config *.world.useTorus false
+config *.world.use2D false
+config *.manager.updateInterval 0.01s
+config *.manager.host "\"localhost\""
+config *.manager.moduleType "\"org.car2x.plexe.PlatoonCar\""
+config *.manager.moduleName "\"node\""
+config *.manager.moduleDisplayString "\"\""
+config *.manager.autoShutdown true
+config *.manager.margin 25
+config *.connectionManager.sendDirect true
+config *.connectionManager.maxInterfDist 2600m
+config *.connectionManager.drawMaxIntfDist false
+config *.**.nic.mac1609_4.useServiceChannel false
+config *.**.nic.mac1609_4.txPower 100mW
+config *.**.nic.mac1609_4.bitrate 6Mbps
+config *.**.nic.mac1609_4.useAcks true
+config *.**.nic.mac1609_4.ackErrorRate 0.0
+config *.**.nic.mac1609_4.frameErrorRate 0.0
+config *.**.nic.phy80211p.minPowerLevel -94dBm
+config *.**.nic.phy80211p.maxTXPower 100mW
+config *.**.nic.phy80211p.useNoiseFloor true
+config *.**.nic.phy80211p.noiseFloor -95dBm
+config *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+config *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+config *.**.nic.phy80211p.usePropagationDelay true
+config *.node[*].mobility.x 0
+config *.node[*].mobility.y 0
+config *.node[*].mobility.z 1.895
+config seed-set 0
+config **.seed 0
+config *.node[*].prot.rng-0 2
+config *.node[*].appl.rng-0 3
+config *.node[*].scenario.rng-0 4
+config **.traffic.rng-0 5
+config *.manager.configFile "\"./sumocfg/freeway.sumo.cfg\""
+config *.manager.launchConfig "xmldoc(\"./sumocfg/freeway.launchd.xml\")"
+config **.numberOfCars 12
+config **.numberOfCarsPerPlatoon 6
+config **.numberOfLanes 1
+config *.node[*].helper_type "\"PositionHelper\""
+config *.node[*].scenario.caccC1 0.5
+config *.node[*].scenario.caccXi 1
+config *.node[*].scenario.caccOmegaN "0.2 Hz"
+config *.node[*].scenario.caccSpacing "2 m"
+config *.node[*].scenario.engineTau "0.5 s"
+config *.node[*].scenario.ploegH 0.5s
+config *.node[*].scenario.ploegKp 0.2
+config *.node[*].scenario.ploegKd 0.7
+config *.node[*].scenario.useRealisticEngine false
+config *.node[*].scenario.useControllerAcceleration true
+config *.node[*].scenario.nLanes 1
+config **.numericController 1
+config **.headway 0.1s
+config *.node[*].scenario.accHeadway 0.1s
+config *.node[*].scenario.leaderHeadway 1.2s
+config *.node[*].scenario.leaderSpeed 110kmph
+config *.node[*].appl_type "\"SimplePlatooningApp\""
+config *.node[*].appl.*.scalar-recording true
+config *.node[*].appl.*.vector-recording true
+config *.node[0].appl.breakRanksSafetyDistance 5m
+config *.node[*].appl.minSpeed 100kmph
+config *.node[*].appl.maxSpeed 120kmph
+config *.node[*].protocol_type "\"SimplePlatooningBeaconing\""
+config *.node[*].prot.*.scalar-recording true
+config *.node[*].prot.*.vector-recording true
+config *.node[*].prot.beaconingInterval 0.1s
+config *.node[*].prot.priority 4
+config *.node[*].prot.packetSize 200
+config **.traffic_type "\"PlatoonsTrafficManager\""
+config **.traffic.platoonInsertTime "1 s"
+config **.traffic.platoonInsertSpeed 110kmph
+config **.traffic.nCars 12
+config **.traffic.platoonSize 6
+config **.traffic.nLanes 1
+config **.traffic.platooningVType "\"vtypeauto\""
+config **.traffic.controller "\"CACC\""
+config **.traffic.platoonInsertDistance 2m
+config **.traffic.platoonInsertHeadway 0s
+config **.traffic.platoonLeaderHeadway 1.2s
+config **.scalar-recording false
+config **.vector-recording false
+
+vector 0 Highway.node[0].appl distance ETV
+vector 1 Highway.node[0].appl relativeSpeed ETV
+vector 2 Highway.node[0].appl nodeId ETV
+vector 3 Highway.node[0].appl acceleration ETV
+vector 4 Highway.node[0].appl controllerAcceleration ETV
+vector 5 Highway.node[0].appl speed ETV
+vector 6 Highway.node[0].appl posx ETV
+vector 7 Highway.node[0].appl posy ETV
+vector 8 Highway.node[1].appl distance ETV
+vector 9 Highway.node[1].appl relativeSpeed ETV
+vector 10 Highway.node[1].appl nodeId ETV
+vector 11 Highway.node[1].appl acceleration ETV
+vector 12 Highway.node[1].appl controllerAcceleration ETV
+vector 13 Highway.node[1].appl speed ETV
+vector 14 Highway.node[1].appl posx ETV
+vector 15 Highway.node[1].appl posy ETV
+vector 16 Highway.node[2].appl distance ETV
+vector 17 Highway.node[2].appl relativeSpeed ETV
+vector 18 Highway.node[2].appl nodeId ETV
+vector 19 Highway.node[2].appl acceleration ETV
+vector 20 Highway.node[2].appl controllerAcceleration ETV
+vector 21 Highway.node[2].appl speed ETV
+vector 22 Highway.node[2].appl posx ETV
+vector 23 Highway.node[2].appl posy ETV
+vector 24 Highway.node[3].appl distance ETV
+vector 25 Highway.node[3].appl relativeSpeed ETV
+vector 26 Highway.node[3].appl nodeId ETV
+vector 27 Highway.node[3].appl acceleration ETV
+vector 28 Highway.node[3].appl controllerAcceleration ETV
+vector 29 Highway.node[3].appl speed ETV
+vector 30 Highway.node[3].appl posx ETV
+vector 31 Highway.node[3].appl posy ETV
+vector 32 Highway.node[4].appl distance ETV
+vector 33 Highway.node[4].appl relativeSpeed ETV
+vector 34 Highway.node[4].appl nodeId ETV
+vector 35 Highway.node[4].appl acceleration ETV
+vector 36 Highway.node[4].appl controllerAcceleration ETV
+vector 37 Highway.node[4].appl speed ETV
+vector 38 Highway.node[4].appl posx ETV
+vector 39 Highway.node[4].appl posy ETV
+vector 40 Highway.node[5].appl distance ETV
+vector 41 Highway.node[5].appl relativeSpeed ETV
+vector 42 Highway.node[5].appl nodeId ETV
+vector 43 Highway.node[5].appl acceleration ETV
+vector 44 Highway.node[5].appl controllerAcceleration ETV
+vector 45 Highway.node[5].appl speed ETV
+vector 46 Highway.node[5].appl posx ETV
+vector 47 Highway.node[5].appl posy ETV
+vector 48 Highway.node[6].appl distance ETV
+vector 49 Highway.node[6].appl relativeSpeed ETV
+vector 50 Highway.node[6].appl nodeId ETV
+vector 51 Highway.node[6].appl acceleration ETV
+vector 52 Highway.node[6].appl controllerAcceleration ETV
+vector 53 Highway.node[6].appl speed ETV
+vector 54 Highway.node[6].appl posx ETV
+vector 55 Highway.node[6].appl posy ETV
+vector 56 Highway.node[7].appl distance ETV
+vector 57 Highway.node[7].appl relativeSpeed ETV
+vector 58 Highway.node[7].appl nodeId ETV
+vector 59 Highway.node[7].appl acceleration ETV
+vector 60 Highway.node[7].appl controllerAcceleration ETV
+vector 61 Highway.node[7].appl speed ETV
+vector 62 Highway.node[7].appl posx ETV
+vector 63 Highway.node[7].appl posy ETV
+vector 64 Highway.node[8].appl distance ETV
+vector 65 Highway.node[8].appl relativeSpeed ETV
+vector 66 Highway.node[8].appl nodeId ETV
+vector 67 Highway.node[8].appl acceleration ETV
+vector 68 Highway.node[8].appl controllerAcceleration ETV
+vector 69 Highway.node[8].appl speed ETV
+vector 70 Highway.node[8].appl posx ETV
+vector 71 Highway.node[8].appl posy ETV
+vector 72 Highway.node[9].appl distance ETV
+vector 73 Highway.node[9].appl relativeSpeed ETV
+vector 74 Highway.node[9].appl nodeId ETV
+vector 75 Highway.node[9].appl acceleration ETV
+vector 76 Highway.node[9].appl controllerAcceleration ETV
+vector 77 Highway.node[9].appl speed ETV
+vector 78 Highway.node[9].appl posx ETV
+vector 79 Highway.node[9].appl posy ETV
+vector 80 Highway.node[10].appl distance ETV
+vector 81 Highway.node[10].appl relativeSpeed ETV
+vector 82 Highway.node[10].appl nodeId ETV
+vector 83 Highway.node[10].appl acceleration ETV
+vector 84 Highway.node[10].appl controllerAcceleration ETV
+vector 85 Highway.node[10].appl speed ETV
+vector 86 Highway.node[10].appl posx ETV
+vector 87 Highway.node[10].appl posy ETV
+vector 88 Highway.node[11].appl distance ETV
+vector 89 Highway.node[11].appl relativeSpeed ETV
+vector 90 Highway.node[11].appl nodeId ETV
+vector 91 Highway.node[11].appl acceleration ETV
+vector 92 Highway.node[11].appl controllerAcceleration ETV
+vector 93 Highway.node[11].appl speed ETV
+vector 94 Highway.node[11].appl posx ETV
+vector 95 Highway.node[11].appl posy ETV
+vector 96 Highway.node[3].prot frontDelay ETV
+vector 97 Highway.node[3].prot frontDelayId ETV
+vector 98 Highway.node[2].prot frontDelay ETV
+vector 99 Highway.node[2].prot frontDelayId ETV
+vector 100 Highway.node[4].prot frontDelay ETV
+vector 101 Highway.node[4].prot frontDelayId ETV
+vector 102 Highway.node[10].prot frontDelay ETV
+vector 103 Highway.node[10].prot frontDelayId ETV
+vector 104 Highway.node[11].prot frontDelay ETV
+vector 105 Highway.node[11].prot frontDelayId ETV
+vector 106 Highway.node[9].prot leaderDelay ETV
+vector 107 Highway.node[9].prot leaderDelayId ETV
+vector 108 Highway.node[9].prot frontDelay ETV
+vector 109 Highway.node[9].prot frontDelayId ETV
+vector 110 Highway.node[10].prot leaderDelay ETV
+vector 111 Highway.node[10].prot leaderDelayId ETV
+vector 112 Highway.node[11].prot leaderDelay ETV
+vector 113 Highway.node[11].prot leaderDelayId ETV
+vector 114 Highway.node[2].prot leaderDelay ETV
+vector 115 Highway.node[2].prot leaderDelayId ETV
+vector 116 Highway.node[3].prot leaderDelay ETV
+vector 117 Highway.node[3].prot leaderDelayId ETV
+vector 118 Highway.node[7].prot frontDelay ETV
+vector 119 Highway.node[7].prot frontDelayId ETV
+vector 120 Highway.node[1].prot leaderDelay ETV
+vector 121 Highway.node[1].prot leaderDelayId ETV
+vector 122 Highway.node[1].prot frontDelay ETV
+vector 123 Highway.node[1].prot frontDelayId ETV
+vector 124 Highway.node[4].prot leaderDelay ETV
+vector 125 Highway.node[4].prot leaderDelayId ETV
+vector 126 Highway.node[5].prot leaderDelay ETV
+vector 127 Highway.node[5].prot leaderDelayId ETV
+vector 128 Highway.node[6].prot leaderDelay ETV
+vector 129 Highway.node[6].prot leaderDelayId ETV
+vector 130 Highway.node[7].prot leaderDelay ETV
+vector 131 Highway.node[7].prot leaderDelayId ETV
+vector 132 Highway.node[5].prot frontDelay ETV
+vector 133 Highway.node[5].prot frontDelayId ETV
+vector 134 Highway.node[6].prot frontDelay ETV
+vector 135 Highway.node[6].prot frontDelayId ETV
+vector 136 Highway.node[0].prot nodeId ETV
+vector 137 Highway.node[0].prot busyTime ETV
+vector 138 Highway.node[0].prot collisions ETV
+vector 139 Highway.node[1].prot nodeId ETV
+vector 140 Highway.node[1].prot busyTime ETV
+vector 141 Highway.node[1].prot collisions ETV
+vector 142 Highway.node[2].prot nodeId ETV
+vector 143 Highway.node[2].prot busyTime ETV
+vector 144 Highway.node[2].prot collisions ETV
+vector 145 Highway.node[3].prot nodeId ETV
+vector 146 Highway.node[3].prot busyTime ETV
+vector 147 Highway.node[3].prot collisions ETV
+vector 148 Highway.node[4].prot nodeId ETV
+vector 149 Highway.node[4].prot busyTime ETV
+vector 150 Highway.node[4].prot collisions ETV
+vector 151 Highway.node[5].prot nodeId ETV
+vector 152 Highway.node[5].prot busyTime ETV
+vector 153 Highway.node[5].prot collisions ETV
+vector 154 Highway.node[6].prot nodeId ETV
+vector 155 Highway.node[6].prot busyTime ETV
+vector 156 Highway.node[6].prot collisions ETV
+vector 157 Highway.node[7].prot nodeId ETV
+vector 158 Highway.node[7].prot busyTime ETV
+vector 159 Highway.node[7].prot collisions ETV
+vector 160 Highway.node[8].prot nodeId ETV
+vector 161 Highway.node[8].prot busyTime ETV
+vector 162 Highway.node[8].prot collisions ETV
+vector 163 Highway.node[9].prot nodeId ETV
+vector 164 Highway.node[9].prot busyTime ETV
+vector 165 Highway.node[9].prot collisions ETV
+vector 166 Highway.node[10].prot nodeId ETV
+vector 167 Highway.node[10].prot busyTime ETV
+vector 168 Highway.node[10].prot collisions ETV
+vector 169 Highway.node[11].prot nodeId ETV
+vector 170 Highway.node[11].prot busyTime ETV
+vector 171 Highway.node[11].prot collisions ETV
+0	13838 17778 113 1190636 1.11 99.91 989 -1 -1 -989 989
+1	31616 16789 113 1190636 1.11 99.91 989 0 0 0 0
+2	48405 16789 113 1190636 1.11 99.91 989 0 0 0 0
+3	65194 19377 113 1190636 1.11 99.91 989 -0.00283113 0.000125957 -0.043966303784312 9.6812896349407e-05
+4	84571 26757 113 1190636 1.11 99.91 989 -0.00437036 0.00019576 -0.042459310034081 0.00013890441444735
+5	111328 22719 113 1190636 1.11 99.91 989 30.5554 30.56 30219.5304 923377.16656332
+6	134047 22615 113 1190636 1.11 99.91 989 111.86 3130.76 1603476.581 3352376976.8171
+7	156662 21734 113 1190636 1.11 99.91 989 242.45 242.45 239783.05 58135400.472499
+8	178396 22625 114 1190637 1.11 99.91 989 1.99924 5 4376.56037 20414.60458948
+9	201021 25752 114 1190637 1.11 99.91 989 -0.00041042 0.238904 29.999937577966 4.7408857628778
+10	226773 17778 114 1190637 1.11 99.91 989 1 1 989 989
+11	244551 27156 114 1190637 1.11 99.91 989 -0.0908391 0.0193052 -0.042048204518002 0.18965688019375
+12	271707 27171 114 1190637 1.11 99.91 989 -0.119592 0.0194638 0.0099975678539969 0.22151405058784
+13	298878 23653 114 1190637 1.11 99.91 989 30.3167 30.56 30189.5329 921548.72418855
+14	322531 23592 114 1190637 1.11 99.91 989 105.86 3121.76 1595143.965 3324085756.6194
+15	346123 22723 114 1190637 1.11 99.91 989 242.45 242.45 239783.05 58135400.472499
+16	368846 22858 115 1190638 1.11 99.91 989 -1 105.518 16595.89123 768712.14487814
+17	391704 24001 115 1190638 1.11 99.91 989 -2.31426 2 76.6372380802 377.11493466752
+18	415705 18767 115 1190638 1.11 99.91 989 10 10 9890 98900
+19	434472 25954 115 1190638 1.11 99.91 989 -0.852132 1.36725 4.4238772676614 65.872301548611
+20	460426 25921 115 1190638 1.11 99.91 989 -0.980801 1.5 4.4831037139362 79.163400337992
+21	486347 23220 115 1190638 1.11 99.91 989 27.0704 31.0945 29418.0102 876359.86227538
+22	509567 23612 115 1190638 1.11 99.91 989 17.1904 2955.91 1455456.2196 2852264464.216
+23	533179 22723 115 1190638 1.11 99.91 989 242.45 249.05 241340.65 58899022.452501
+24	555902 23053 116 1190639 1.11 99.91 989 -1 143.527 22482.6186 1561615.1647042
+25	578955 23464 116 1190639 1.11 99.91 989 -1 4.02727 719.99325397085 2451.7785309324
+26	602419 18767 116 1190639 1.11 99.91 989 11 11 10879 119669
+27	621186 26065 116 1190639 1.11 99.91 989 -0.98036 0.201805 -15.562868628621 40.990986115475
+28	647251 26185 116 1190639 1.11 99.91 989 -1.5 0.202422 -14.641754105194 48.102043361859
+29	673436 22510 116 1190639 1.11 99.91 989 26.651 30.56 28940.9175 848075.15311561
+30	695946 23311 116 1190639 1.11 99.91 989 11.1904 2902.3 1437051.5774 2782869026.7949
+31	719257 22723 116 1190639 1.11 99.91 989 242.45 252.35 241865.35 59161018.032501
+32	741980 23587 117 1190640 1.11 99.91 989 1.99976 4.99994 4302.11165 19829.931271087
+33	765567 26662 117 1190640 1.11 99.91 989 -9.90587e-05 0.18884 29.999438655316 3.8301214076965
+34	792229 17778 117 1190640 1.11 99.91 989 2 2 1978 3956
+35	810007 27034 117 1190640 1.11 99.91 989 -0.141015 0.0298441 -0.042118316001999 0.51358294437423
+36	837041 27023 117 1190640 1.11 99.91 989 -0.179587 0.0300449 0.0099332747950016 0.59079880224792
+37	864064 23644 117 1190640 1.11 99.91 989 30.1359 30.56 30159.5351 919727.60305254
+38	887708 23599 117 1190640 1.11 99.91 989 99.8604 3112.76 1586886.1174 3296061605.5988
+39	911307 22723 117 1190640 1.11 99.91 989 242.45 242.45 239783.05 58135400.472499
+40	934030 23546 118 1190641 1.11 99.91 989 1.99967 4.99981 4226.52138 19246.081302643
+41	957576 26562 118 1190641 1.11 99.91 989 -0.000246311 0.159779 29.998060630652 3.2739367929961
+42	984138 17778 118 1190641 1.11 99.91 989 3 3 2967 8901
+43	1001916 26926 118 1190641 1.11 99.91 989 -0.168977 0.0356499 -0.042255678379998 0.81702622155119
+44	1028842 26951 118 1190641 1.11 99.91 989 -0.20992 0.0358052 0.0095795123399946 0.92413683966178
+45	1055793 23635 118 1190641 1.11 99.91 989 29.9943 30.56 30129.5361 917911.51031782
+46	1079428 23593 118 1190641 1.11 99.91 989 93.8604 3103.76 1578703.3722 3268310725.6121
+47	1103021 22723 118 1190641 1.11 99.91 989 242.45 242.45 239783.05 58135400.472499
+48	1125744 23589 119 1190642 1.11 99.91 989 1.99949 4.99968 4150.91632 18667.821410062
+49	1149333 26484 119 1190642 1.11 99.91 989 -0.000751874 0.140382 29.99684917288 2.8950738743246
+50	1175817 17778 119 1190642 1.11 99.91 989 4 4 3956 15824
+51	1193595 26835 119 1190642 1.11 99.91 989 -0.184602 0.0386173 -0.042316336368999 1.0641404441121
+52	1220430 26848 119 1190642 1.11 99.91 989 -0.224283 0.0387811 0.010794387090004 1.1763520551009
+53	1247278 23614 119 1190642 1.11 99.91 989 29.8812 30.56 30099.537 916099.06345119
+54	1270892 23593 119 1190642 1.11 99.91 989 87.8604 3094.76 1570596.4006 3240843481.6761
+55	1294485 22723 119 1190642 1.11 99.91 989 242.45 242.45 239783.05 58135400.472499
+56	1317208 23708 120 1190643 1.11 99.91 989 0.661995 2.00011 1678.082323 3031.8527957154
+57	1340916 26558 120 1190643 1.11 99.91 989 -0.192969 0.0642378 -0.003664254315999 2.5401120946547
+58	1367474 17778 120 1190643 1.11 99.91 989 5 5 4945 24725
+59	1385252 26813 120 1190643 1.11 99.91 989 -0.107791 0.0295891 -0.044493531910004 0.58133032815481
+60	1412065 26838 120 1190643 1.11 99.91 989 -0.115258 0.0296716 -0.044457994575998 0.61558358742616
+61	1438903 23616 120 1190643 1.11 99.91 989 29.9763 30.56 30099.5363 916091.82783851
+62	1462519 23598 120 1190643 1.11 99.91 989 81.8604 3088.76 1564962.3153 3222583818.2253
+63	1486117 22723 120 1190643 1.11 99.91 989 242.45 242.45 239783.05 58135400.472499
+64	1508840 23599 121 1190644 1.11 99.91 989 36.67 38.6664 37874.2155 1450654.4231589
+65	1532439 26398 121 1190644 1.11 99.91 989 -0.057102 0.169923 19.9639283403 1.9371479596385
+66	1558837 17778 121 1190644 1.11 99.91 989 6 6 5934 35604
+67	1576615 26661 121 1190644 1.11 99.91 989 -0.108705 0.0308188 -0.043583161699999 0.65738725741936
+68	1603276 26635 121 1190644 1.11 99.91 989 -0.165781 0.0308982 0.013627478100005 0.73661899214365
+69	1629911 23604 121 1190644 1.11 99.91 989 29.9474 30.5586 30079.5763 914879.21386045
+70	1653515 23607 121 1190644 1.11 99.91 989 41.1904 3046.09 1523132.1461 3091236476.3312
+71	1677122 22723 121 1190644 1.11 99.91 989 242.45 242.45 239783.05 58135400.472499
+72	1699845 22957 122 1190645 1.11 99.91 989 -1 69.5674 14509.06435 407284.55632331
+73	1722802 23132 122 1190645 1.11 99.91 989 -0.0156188 5 797.9580600555 2895.3529613181
+74	1745934 17778 122 1190645 1.11 99.91 989 7 7 6923 48461
+75	1763712 26401 122 1190645 1.11 99.91 989 -1.35869 0.0850404 -25.562905172467 32.173836820063
+76	1790113 26449 122 1190645 1.11 99.91 989 -1.5 0.0943265 -24.638015956633 39.747333871595
+77	1816562 22553 122 1190645 1.11 99.91 989 27.9057 30.56 29151.0135 860357.91004539
+78	1839115 23643 122 1190645 1.11 99.91 989 35.1904 2947.36 1494324.615 2968462753.7438
+79	1862758 22723 122 1190645 1.11 99.91 989 242.45 245.75 240561.85 58515610.6325
+80	1885481 23594 123 1190646 1.11 99.91 989 1.99273 51.456 20976.50201 689701.24006682
+81	1909075 25335 123 1190646 1.11 99.91 989 -0.00480713 0.821182 304.8794802113 168.38217188243
+82	1934410 17778 123 1190646 1.11 99.91 989 8 8 7912 63296
+83	1952188 26457 123 1190646 1.11 99.91 989 -0.628971 0.139306 -5.5702028608862 14.006747581917
+84	1978645 26430 123 1190646 1.11 99.91 989 -0.77042 0.139889 -4.977208619599 16.074975835259
+85	2005075 22430 123 1190646 1.11 99.91 989 28.2454 30.56 29644.7391 888948.83150729
+86	2027505 23634 123 1190646 1.11 99.91 989 29.1904 2990.64 1488050.7683 2965958491.2481
+87	2051139 22723 123 1190646 1.11 99.91 989 242.45 242.45 239783.05 58135400.472499
+88	2073862 21992 124 1190647 1.11 99.91 989 -1 14.9726 6523.40781 88415.0101017
+89	2095854 23041 124 1190647 1.11 99.91 989 -0.0029074 0.693749 129.72791460026 61.593793463378
+90	2118895 17778 124 1190647 1.11 99.91 989 9 9 8901 80109
+91	2136673 26146 124 1190647 1.11 99.91 989 -0.754313 1.34131 24.436261638967 45.070559328809
+92	2162819 26254 124 1190647 1.11 99.91 989 -0.898006 1.5 24.679621956272 55.034947761034
+93	2189073 22559 124 1190647 1.11 99.91 989 27.5914 33.0931 30454.1889 940603.90061229
+94	2211632 23618 124 1190647 1.11 99.91 989 23.1904 3065.43 1487081.5876 2991585550.3501
+95	2235250 22723 124 1190647 1.11 99.91 989 242.45 249.05 241310.95 58884326.892501
+96	2257973 40253 1360 1190697 1.213880834669 99.913881100347 988 0.099990814655 0.100005831417 98.799991080333 9.8799982544962
+97	2298226 28518 1360 1190697 1.213880834669 99.913881100347 988 11 11 10868 119548
+98	2326744 40267 1459 1190832 1.226601854683 99.926602652282 988 0.099990814655 0.100005832084 98.799991612254 9.8799983608781
+99	2367011 28514 1459 1190832 1.226601854683 99.926602652282 988 10 10 9880 98800
+100	2395525 41233 1563 1190888 1.22963813044 99.929638504903 988 0.099990814655 0.100005830603 98.799991189118 9.8799982762573
+101	2436758 28515 1563 1190888 1.22963813044 99.929638504903 988 2 2 1976 3952
+102	2465273 41270 1663 1190988 1.24304836617 99.943049201376 988 0.099987508422 0.100005832123 98.799991649861 9.8799983685243
+103	2506543 28548 1663 1190988 1.24304836617 99.943049201376 988 8 8 7904 63232
+104	2535091 41264 1761 1191098 1.244017386184 99.944018451507 988 0.099990814655 0.100005833123 98.799991879978 9.8799984144267
+105	2576355 28526 1761 1191098 1.244017386184 99.944018451507 988 9 9 8892 80028
+106	2604881 41239 1854 1191233 1.252942426208 99.95293071618 988 0.099990814652 0.100005833161 98.799992104625 9.8799984593508
+107	2646120 28522 1854 1191233 1.252942426208 99.95293071618 988 7 7 6916 48412
+108	2674642 41239 1854 1191233 1.252942426208 99.95293071618 988 0.099990814652 0.100005833161 98.799992104625 9.8799984593508
+109	2715881 28522 1854 1191233 1.252942426208 99.95293071618 988 7 7 6916 48412
+110	2744403 41258 1860 1191197 1.252942446221 99.952930571505 988 0.099990814652 0.100005832494 98.799991939936 9.879998426413
+111	2785661 28532 1860 1191197 1.252942446221 99.952930571505 988 8 8 7904 63232
+112	2814193 41265 1866 1191179 1.252942466235 99.952930452273 988 0.099990814652 0.100005833112 98.79999180069 9.8799983985638
+113	2855458 28527 1866 1191179 1.252942466235 99.952930452273 988 9 9 8892 80028
+114	2883985 41283 1872 1191227 1.252942486249 99.952930687362 988 0.099990814652 0.10000583216 98.799992015765 9.8799984415788
+115	2925268 29529 1872 1191227 1.252942486249 99.952930687362 988 10 10 9880 98800
+116	2954797 41250 1878 1191239 1.252942506263 99.952930866442 988 0.099990814652 0.100005832827 98.799992174831 9.879998473392
+117	2996047 29499 1878 1191239 1.252942506263 99.952930866442 988 11 11 10868 119548
+118	3025546 41241 1961 1191280 1.254418581887 99.954419568776 988 0.099990814666 0.100006835554 98.800004801545 9.8800009987783
+119	3066787 28516 1961 1191280 1.254418581887 99.954419568776 988 5 5 4940 24700
+120	3095303 41237 2050 1191375 1.254841661942 99.954881698865 988 0.099899841569 0.100096297187 98.800069851579 9.8800158471954
+121	3136540 28506 2050 1191375 1.254841661942 99.954881698865 988 1 1 988 988
+122	3165046 41237 2050 1191375 1.254841661942 99.954881698865 988 0.099899841569 0.100096297187 98.800069851579 9.8800158471954
+123	3206283 28506 2050 1191375 1.254841661942 99.954881698865 988 1 1 988 988
+124	3234789 41275 2056 1191381 1.254841681956 99.954881728885 988 0.099899841583 0.100096297187 98.800069861585 9.8800158491966
+125	3276064 28521 2056 1191381 1.254841681956 99.954881728885 988 2 2 1976 3952
+126	3304585 41270 2062 1191387 1.254841701969 99.954881758905 988 0.099899841587 0.100096297187 98.800069871591 9.8800158511978
+127	3345855 28529 2062 1191387 1.254841701969 99.954881758905 988 3 3 2964 8892
+128	3374384 41253 2068 1191393 1.254841721983 99.954881788925 988 0.09989984159 0.100096297187 98.800069881598 9.8800158531992
+129	3415637 28532 2068 1191393 1.254841721983 99.954881788925 988 4 4 3952 15808
+130	3444169 41255 2074 1191399 1.254841741997 99.954881808938 988 0.099899841567 0.100096297187 98.800069881597 9.880015853199
+131	3485424 28521 2074 1191399 1.254841741997 99.954881808938 988 5 5 4940 24700
+132	3513945 41263 2253 1191572 1.265736822053 99.96573791901 988 0.099990814666 0.100006835554 98.800004911613 9.8800010207866
+133	3555208 28524 2253 1191572 1.265736822053 99.96573791901 988 3 3 2964 8892
+134	3583732 41188 2453 1190580 1.305141393582 99.9051504582 987 0.099990814657 0.100005833346 98.699999879275 9.8700000142442
+135	3624920 28478 2453 1190580 1.305141393582 99.9051504582 987 4 4 3948 15792
+136	3653398 1585 10698 1191637 2 100 99 0 0 0 0
+137	3654983 2195 10698 1191637 2 100 99 0.033081 0.038122 3.704926398592 0.13867094731576
+138	3657178 1585 10698 1191637 2 100 99 0 0 0 0
+139	3658763 1585 10699 1191638 2 100 99 1 1 99 99
+140	3660348 2201 10699 1191638 2 100 99 0.033081 0.038122 3.704830417946 0.13866372682593
+141	3662549 1585 10699 1191638 2 100 99 0 0 0 0
+142	3664134 1684 10700 1191639 2 100 99 10 10 990 9900
+143	3665818 2194 10700 1191639 2 100 99 0.033081 0.038154 3.70486250581 0.13866617433411
+144	3668012 1585 10700 1191639 2 100 99 0 0 0 0
+145	3669597 1684 10701 1191640 2 100 99 11 11 1089 11979
+146	3671281 2194 10701 1191640 2 100 99 0.03308 0.038187632448 3.704861632448 0.13866615751598
+147	3673475 1585 10701 1191640 2 100 99 0 0 0 0
+148	3675060 1585 10702 1191641 2 100 99 2 2 198 396
+149	3676645 2200 10702 1191641 2 100 99 0.033081 0.038122 3.704830437662 0.13866372831612
+150	3678845 1585 10702 1191641 2 100 99 0 0 0 0
+151	3680430 1585 10703 1191642 2 100 99 3 3 297 891
+152	3682015 2200 10703 1191642 2 100 99 0.03308 0.038122 3.70482945749 0.13866367108584
+153	3684215 1585 10703 1191642 2 100 99 0 0 0 0
+154	3685800 1585 10704 1191643 2 100 99 4 4 396 1584
+155	3687385 2201 10704 1191643 2 100 99 0.033081 0.038122 3.704830477357 0.13866373131632
+156	3689586 1585 10704 1191643 2 100 99 0 0 0 0
+157	3691171 1585 10705 1191644 2 100 99 5 5 495 2475
+158	3692756 2195 10705 1191644 2 100 99 0.033081 0.038122 3.704797198463 0.13866123017297
+159	3694951 1585 10705 1191644 2 100 99 0 0 0 0
+160	3696536 1585 10706 1191645 2 100 99 6 6 594 3564
+161	3698121 2201 10706 1191645 2 100 99 0.033081 0.038320898908 3.70512497897 0.13868612783561
+162	3700322 1585 10706 1191645 2 100 99 0 0 0 0
+163	3701907 1585 10707 1191646 2 100 99 7 7 693 4851
+164	3703492 2195 10707 1191646 2 100 99 0.033081 0.038154 3.704862126092 0.13866615320312
+165	3705687 1585 10707 1191646 2 100 99 0 0 0 0
+166	3707272 1585 10708 1191647 2 100 99 8 8 792 6336
+167	3708857 2195 10708 1191647 2 100 99 0.033081 0.038154 3.704862252578 0.1386661552934
+168	3711052 1585 10708 1191647 2 100 99 0 0 0 0
+169	3712637 1585 10709 1191648 2 100 99 9 9 891 8019
+170	3714222 2195 10709 1191648 2 100 99 0.033081 0.038154 3.704862379172 0.13866616481209
+171	3716417 1585 10709 1191648 2 100 99 0 0 0 0
+
