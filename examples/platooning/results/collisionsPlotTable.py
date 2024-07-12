@@ -50,7 +50,7 @@ def process_data_and_generate_matrix_table_image(data_directory, speeds, safety_
                 print(f"Error processing directory {subdir_path}: {str(e)}")
 
     # Create a matplotlib Figure object
-    fig, ax = plt.subplots(figsize=(10, 10))  # Adjust the figure size as needed
+    fig, ax = plt.subplots(figsize=(12, 8))  # Increase the figure width
 
     # Create the table
     ax.axis('tight')
@@ -60,17 +60,21 @@ def process_data_and_generate_matrix_table_image(data_directory, speeds, safety_
     table = ax.table(cellText=collision_matrix, rowLabels=row_labels, colLabels=col_labels, loc='center', cellLoc='center', colColours=['#f2f2f2'] * len(safety_distances))
 
     table.auto_set_font_size(False)
-    table.set_fontsize(12)
-    table.scale(1.4, 1.4)  # Adjust table size (increased scaling)
+    table.set_fontsize(10)
+    table.scale(1.2, 1.2)  # Increase table scaling
 
     # Adjust column widths
-    for key, cell in table.get_celld().items():
-        cell.set_width(0.20)  # Adjust the width of each cell (this is a fraction of the table width)
+    col_width = 1.2 / (len(safety_distances) + 1)  # Include an extra column for the row labels
 
+    for (i, j), cell in table.get_celld().items():
+        if j == -1:  # This is the row label (speed column)
+            cell.set_width(0.1)  # Adjust width of the speed column
+        else:
+            cell.set_width(col_width)  # Adjust width of other columns
 
     # Save the table image
     output_file = 'collision_matrix_table.png'
-    plt.savefig(os.path.join(data_directory, output_file))
+    plt.savefig(os.path.join(data_directory, output_file), bbox_inches='tight', pad_inches=0.1)
     print(f"Collision matrix table generated at '{output_file}'.")
 
 # Function to read the number of collisions from a .vec file
@@ -87,7 +91,7 @@ def read_collisions_from_vec(file_path):
 
 # Define the speeds and safety distances to include in the matrix
 speeds = [110, 130, 150]
-safety_distances = [2, 3, 5, 10]
+safety_distances = [2, 3, 5, 10, 15, 20]
 
 # Call the main function to process the data and generate the matrix table as an image
 process_data_and_generate_matrix_table_image(data_directory, speeds, safety_distances)
