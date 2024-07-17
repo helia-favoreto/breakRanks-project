@@ -78,3 +78,7 @@ safety_distances = [2, 3, 5, 10, 15, 20]
 
 # Call the main function to process the data and generate the LaTeX table
 process_data_and_generate_latex_table(data_directory, speeds, safety_distances)
+
+
+
+
